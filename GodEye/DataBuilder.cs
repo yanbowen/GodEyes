@@ -61,6 +61,20 @@ namespace GodEye
                         rows[3] += " [" + tcp.SourcePort.ToString() + "]";
                         rows[4] += " [" + tcp.DestinationPort.ToString() + "]";
 
+                        #region 25:smtp协议;80, 8080, 3128: Http; 21: FTP;
+                        if (tcp.DestinationPort.ToString() == "25")
+                        {
+                            rows[1] = "SMTP";
+                        }
+                        else if(tcp.DestinationPort.ToString() == "80"|| tcp.DestinationPort.ToString() == "8080"|| tcp.DestinationPort.ToString() == "3128")
+                        {
+                            rows[1] = "HTTP";
+                        }
+                        else if(tcp.DestinationPort.ToString() == "21")
+                        {
+                            rows[1] = "FTP";
+                        }
+                        #endregion
                         return rows;
                     }
                     UdpPacket udp = UdpPacket.GetEncapsulated(packet);
@@ -163,7 +177,10 @@ namespace GodEye
                 rows[5] = "地址：" + hdlc.Address.ToString("X2") + " 控制：" + hdlc.Control.ToString() + " 协议类型:" + hdlc.Protocol.ToString();
                 return rows;
             }
-#warning 需要测试
+            #region
+            //SmtpPacket smtp = SmtpPacket.
+            #endregion
+
             PacketDotNet.Ieee80211.MacFrame ieee = Packet.ParsePacket(rawPacket.LinkLayerType, rawPacket.Data) as PacketDotNet.Ieee80211.MacFrame;
             if (ieee != null)
             {

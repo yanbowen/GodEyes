@@ -264,7 +264,7 @@ namespace MySniffer
 
             treeView1.Nodes.Clear();
             pktInfo.GetProtcolTree(rawPacket);
-            richTextBox1.Text = HexConvert.ConvertToHexText(rawPacket.Data);
+            richTextBox1.Text = HexConvert.ConvertToHexText(rawPacket .Data);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
