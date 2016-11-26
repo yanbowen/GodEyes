@@ -26,6 +26,7 @@ namespace GodEye
         /// </summary>
         #region
         private StaffMonitoringForm staffForm;
+        private EmailForm emailForm;
         ICaptureDevice device;// 定义设备
         List<RawCapture> packetList = new List<RawCapture>();//捕获的数据列表
         List<RawCapture> bufferList;//缓存列表
@@ -136,6 +137,38 @@ namespace GodEye
                     staffForm.TopMost = true;
                 }
             }
+        }
+
+        private void emailMonitoringOpenLabel_Click(object sender, EventArgs e)
+        {
+            if (emailForm == null)
+            {
+                emailForm = new EmailForm();
+                emailForm.Show();
+            }
+            else
+            {
+                if (emailForm.IsDisposed)
+                {
+                    emailForm = new EmailForm();
+                    emailForm.Show();
+                }
+                else
+                {
+                    emailForm.WindowState = FormWindowState.Normal;
+                    emailForm.TopMost = true;
+                }
+            }
+        }
+
+        private void qqLoginPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void emailMonitoringPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         /// <summary>
@@ -401,6 +434,11 @@ namespace GodEye
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Stop();
+        }
+
+        private void staffMonitoringPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

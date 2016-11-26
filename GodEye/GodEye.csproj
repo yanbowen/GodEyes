@@ -64,6 +64,12 @@
       <DependentUpon>ChartFormTest.cs</DependentUpon>
     </Compile>
     <Compile Include="DataBuilder.cs" />
+    <Compile Include="EmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmailForm.Designer.cs">
+      <DependentUpon>EmailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Format.cs" />
     <Compile Include="HexConvert.cs" />
     <Compile Include="MainForm.cs">
@@ -84,10 +90,13 @@
     <Compile Include="StaffMonitoringForm.Designer.cs">
       <DependentUpon>StaffMonitoringForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StaffMonitoringProgram.cs" />
+    <Compile Include="MainProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ChartFormTest.resx">
       <DependentUpon>ChartFormTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailForm.resx">
+      <DependentUpon>EmailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

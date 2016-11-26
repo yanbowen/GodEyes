@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace GodEye
 {
-    static class StaffMonitoringProgram
+    static class MainProgram
     {
         /// <summary>
         /// 应用程序的主入口点。
