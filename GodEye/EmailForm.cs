@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,10 @@ namespace GodEye
 {
     public partial class EmailForm : Form
     {
+        private string recordButtonString = "recordButton";
+        private string startCurrentMonitoringString = "startCurrentMonitoring";
+        private string stopCurrentMonitoringString = "stopCurrentMonitoring";
+
         public EmailForm()
         {
             InitializeComponent();
@@ -26,6 +31,7 @@ namespace GodEye
             this.emailSendColum.Width = width / emailDataGridView.ColumnCount;
             this.emailReceiveColum.Width = width / emailDataGridView.ColumnCount;
             this.emailTimeColum.Width = width / emailDataGridView.ColumnCount;
+            Debug.WriteLine(width);
         }
 
         private void EmailForm_Resize(object sender, EventArgs e)
@@ -39,9 +45,9 @@ namespace GodEye
             DataGridViewConfig();
         }
 
-        private void UIConfig(string buttionName)
+        private void UIConfig(string buttonName)
         {
-            if (buttionName.Equals(recordButtonString))
+            if (buttonName.Equals(recordButtonString))
             {
                 recordUpButton.Enabled = true;
                 recordDownButton.Enabled = true;
@@ -50,7 +56,7 @@ namespace GodEye
                 stopCurrentMonitoring.Enabled = false;
             }
             else
-            if (buttionName.Equals(startCurrentMonitoringString))
+            if (buttonName.Equals(startCurrentMonitoringString))
             {
                 startDateTimePicker.Enabled = false;
                 stopDateTimePicker.Enabled = false;
@@ -77,21 +83,6 @@ namespace GodEye
                 startCurrentMonitoring.Enabled = true;
             }
 
-        }
-
-        private void startCurrentMonitoring_Click(object sender, EventArgs e)
-        {
-            UIConfig(startCurrentMonitoringString);
-        }
-
-        private void stopCurrentMonitoring_Click(object sender, EventArgs e)
-        {
-            UIConfig(stopCurrentMonitoringString);
-        }
-
-        private void recordButton_Click(object sender, EventArgs e)
-        {
-            UIConfig(recordButtonString);
         }
 
         private void EmailForm_FormClosing(object sender, FormClosingEventArgs e)

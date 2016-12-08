@@ -32,11 +32,12 @@ namespace GodEye
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dataMonitoringGroupBox = new System.Windows.Forms.GroupBox();
             this.chartflow = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.functionPanel = new System.Windows.Forms.Panel();
@@ -88,32 +89,32 @@ namespace GodEye
             this.chartflow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.chartflow.ChartAreas.Add(chartArea2);
-            legend3.Alignment = System.Drawing.StringAlignment.Far;
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend3.Name = "Legend1";
-            legend4.Alignment = System.Drawing.StringAlignment.Far;
-            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend4.Name = "Legend2";
-            this.chartflow.Legends.Add(legend3);
-            this.chartflow.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chartflow.ChartAreas.Add(chartArea1);
+            legend1.Alignment = System.Drawing.StringAlignment.Far;
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend1.Name = "Legend1";
+            legend2.Alignment = System.Drawing.StringAlignment.Far;
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend2.Name = "Legend2";
+            this.chartflow.Legends.Add(legend1);
+            this.chartflow.Legends.Add(legend2);
             this.chartflow.Location = new System.Drawing.Point(6, 33);
             this.chartflow.Name = "chartflow";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.IsXValueIndexed = true;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Time;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.IsXValueIndexed = true;
-            series4.Legend = "Legend2";
-            series4.Name = "Series2";
-            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Time;
-            this.chartflow.Series.Add(series3);
-            this.chartflow.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.IsXValueIndexed = true;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Time;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.IsXValueIndexed = true;
+            series2.Legend = "Legend2";
+            series2.Name = "Series2";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Time;
+            this.chartflow.Series.Add(series1);
+            this.chartflow.Series.Add(series2);
             this.chartflow.Size = new System.Drawing.Size(990, 649);
             this.chartflow.TabIndex = 0;
             this.chartflow.Text = "chartflow";
@@ -138,8 +139,7 @@ namespace GodEye
             this.emailMonitoringPanel.Name = "emailMonitoringPanel";
             this.emailMonitoringPanel.Size = new System.Drawing.Size(364, 100);
             this.emailMonitoringPanel.TabIndex = 8;
-            this.emailMonitoringPanel.Click += new System.EventHandler(this.emailMonitoringOpenLabel_Click);
-            this.emailMonitoringPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.emailMonitoringPanel_Paint);
+            this.emailMonitoringPanel.Click += new System.EventHandler(this.emailMonitoringPanel_Click);
             // 
             // emailMonitoringOpenLabel
             // 
@@ -171,7 +171,6 @@ namespace GodEye
             this.qqLoginPanel.Name = "qqLoginPanel";
             this.qqLoginPanel.Size = new System.Drawing.Size(364, 100);
             this.qqLoginPanel.TabIndex = 7;
-            this.qqLoginPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.qqLoginPanel_Paint);
             // 
             // qqLoginOpenLabel
             // 
@@ -203,7 +202,6 @@ namespace GodEye
             this.staffMonitoringPanel.Size = new System.Drawing.Size(364, 100);
             this.staffMonitoringPanel.TabIndex = 6;
             this.staffMonitoringPanel.Click += new System.EventHandler(this.staffMonitoringOpenLabel_Click);
-            this.staffMonitoringPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.staffMonitoringPanel_Paint);
             // 
             // staffMonitoringOpenLabel
             // 
@@ -323,6 +321,7 @@ namespace GodEye
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataMonitoringGroupBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "GodEye";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);

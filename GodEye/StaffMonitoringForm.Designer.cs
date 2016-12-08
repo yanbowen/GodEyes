@@ -34,6 +34,7 @@ namespace GodEye
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffMonitoringForm));
             this.networkGames = new System.Windows.Forms.CheckBox();
             this.entertainmentSite = new System.Windows.Forms.CheckBox();
             this.startCurrentMonitoring = new System.Windows.Forms.Button();
@@ -206,7 +207,7 @@ namespace GodEye
             this.richTextBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(3, 17);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(779, 147);
+            this.richTextBox1.Size = new System.Drawing.Size(807, 147);
             this.richTextBox1.TabIndex = 12;
             this.richTextBox1.Text = "";
             // 
@@ -375,9 +376,9 @@ namespace GodEye
             // 
             this.detail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.detail.Controls.Add(this.richTextBox1);
-            this.detail.Location = new System.Drawing.Point(350, 532);
+            this.detail.Location = new System.Drawing.Point(322, 532);
             this.detail.Name = "detail";
-            this.detail.Size = new System.Drawing.Size(785, 167);
+            this.detail.Size = new System.Drawing.Size(813, 167);
             this.detail.TabIndex = 12;
             this.detail.TabStop = false;
             this.detail.Text = "内容";
@@ -391,6 +392,7 @@ namespace GodEye
             this.Controls.Add(this.currentMonitoringGroupBox);
             this.Controls.Add(this.recordGroupBox);
             this.Controls.Add(this.monitoringResultsGroupBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StaffMonitoringForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GodEye-员工监测";

@@ -28,90 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.emailContent = new System.Windows.Forms.GroupBox();
-            this.emailRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.recordGroupBox = new System.Windows.Forms.GroupBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.currentDownButton = new System.Windows.Forms.Button();
+            this.startCurrentMonitoring = new System.Windows.Forms.Button();
+            this.stopCurrentMonitoring = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.keywordTextBox = new System.Windows.Forms.TextBox();
             this.recordDownButton = new System.Windows.Forms.Button();
             this.recordUpButton = new System.Windows.Forms.Button();
             this.recordButton = new System.Windows.Forms.Button();
+            this.emailDataGridView = new System.Windows.Forms.DataGridView();
             this.designatedestinationIPLabel = new System.Windows.Forms.Label();
-            this.destinationTextBox = new System.Windows.Forms.TextBox();
             this.designatesourceIPLabel = new System.Windows.Forms.Label();
             this.sourceTextBox = new System.Windows.Forms.TextBox();
+            this.currentUpButton = new System.Windows.Forms.Button();
+            this.destinationTextBox = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.stopDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.startTimeLabel = new System.Windows.Forms.Label();
             this.stopTimeLabel = new System.Windows.Forms.Label();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.recordGroupBox = new System.Windows.Forms.GroupBox();
+            this.emailRichTextBox = new System.Windows.Forms.RichTextBox();
             this.currentMonitoringGroupBox = new System.Windows.Forms.GroupBox();
-            this.currentDownButton = new System.Windows.Forms.Button();
-            this.currentUpButton = new System.Windows.Forms.Button();
-            this.startCurrentMonitoring = new System.Windows.Forms.Button();
-            this.stopCurrentMonitoring = new System.Windows.Forms.Button();
-            this.emailDataGridView = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.emailContent = new System.Windows.Forms.GroupBox();
+            this.emailTimeColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailSendColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailReceiveColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailTimeColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailContent.SuspendLayout();
-            this.recordGroupBox.SuspendLayout();
-            this.currentMonitoringGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emailDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.recordGroupBox.SuspendLayout();
+            this.currentMonitoringGroupBox.SuspendLayout();
+            this.emailContent.SuspendLayout();
             this.SuspendLayout();
             // 
-            // emailContent
+            // currentDownButton
             // 
-            this.emailContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.emailContent.Controls.Add(this.emailRichTextBox);
-            this.emailContent.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.emailContent.Location = new System.Drawing.Point(768, 12);
-            this.emailContent.Name = "emailContent";
-            this.emailContent.Size = new System.Drawing.Size(410, 687);
-            this.emailContent.TabIndex = 0;
-            this.emailContent.TabStop = false;
-            this.emailContent.Text = "邮件内容";
+            this.currentDownButton.Font = new System.Drawing.Font("华文楷体", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.currentDownButton.Location = new System.Drawing.Point(151, 87);
+            this.currentDownButton.Name = "currentDownButton";
+            this.currentDownButton.Size = new System.Drawing.Size(90, 32);
+            this.currentDownButton.TabIndex = 19;
+            this.currentDownButton.Text = "下页";
+            this.currentDownButton.UseVisualStyleBackColor = true;
             // 
-            // emailRichTextBox
+            // startCurrentMonitoring
             // 
-            this.emailRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailRichTextBox.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailRichTextBox.Location = new System.Drawing.Point(3, 30);
-            this.emailRichTextBox.Name = "emailRichTextBox";
-            this.emailRichTextBox.Size = new System.Drawing.Size(404, 654);
-            this.emailRichTextBox.TabIndex = 13;
-            this.emailRichTextBox.Text = "";
+            this.startCurrentMonitoring.Font = new System.Drawing.Font("华文楷体", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.startCurrentMonitoring.Location = new System.Drawing.Point(42, 33);
+            this.startCurrentMonitoring.Name = "startCurrentMonitoring";
+            this.startCurrentMonitoring.Size = new System.Drawing.Size(200, 32);
+            this.startCurrentMonitoring.TabIndex = 4;
+            this.startCurrentMonitoring.Text = "开始监测";
+            this.startCurrentMonitoring.UseVisualStyleBackColor = true;
             // 
-            // recordGroupBox
+            // stopCurrentMonitoring
             // 
-            this.recordGroupBox.Controls.Add(this.label1);
-            this.recordGroupBox.Controls.Add(this.keywordTextBox);
-            this.recordGroupBox.Controls.Add(this.recordDownButton);
-            this.recordGroupBox.Controls.Add(this.recordUpButton);
-            this.recordGroupBox.Controls.Add(this.recordButton);
-            this.recordGroupBox.Controls.Add(this.designatedestinationIPLabel);
-            this.recordGroupBox.Controls.Add(this.destinationTextBox);
-            this.recordGroupBox.Controls.Add(this.designatesourceIPLabel);
-            this.recordGroupBox.Controls.Add(this.sourceTextBox);
-            this.recordGroupBox.Controls.Add(this.stopDateTimePicker);
-            this.recordGroupBox.Controls.Add(this.startTimeLabel);
-            this.recordGroupBox.Controls.Add(this.stopTimeLabel);
-            this.recordGroupBox.Controls.Add(this.startDateTimePicker);
-            this.recordGroupBox.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.recordGroupBox.Location = new System.Drawing.Point(12, 12);
-            this.recordGroupBox.Name = "recordGroupBox";
-            this.recordGroupBox.Size = new System.Drawing.Size(300, 461);
-            this.recordGroupBox.TabIndex = 12;
-            this.recordGroupBox.TabStop = false;
-            this.recordGroupBox.Text = "记录查询";
+            this.stopCurrentMonitoring.Font = new System.Drawing.Font("华文楷体", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.stopCurrentMonitoring.Location = new System.Drawing.Point(41, 141);
+            this.stopCurrentMonitoring.Name = "stopCurrentMonitoring";
+            this.stopCurrentMonitoring.Size = new System.Drawing.Size(200, 32);
+            this.stopCurrentMonitoring.TabIndex = 5;
+            this.stopCurrentMonitoring.Text = "结束监测";
+            this.stopCurrentMonitoring.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -160,7 +143,35 @@
             this.recordButton.TabIndex = 15;
             this.recordButton.Text = "查询记录";
             this.recordButton.UseVisualStyleBackColor = true;
-            this.recordButton.Click += new System.EventHandler(this.recordButton_Click);
+            // 
+            // emailDataGridView
+            // 
+            this.emailDataGridView.AllowUserToAddRows = false;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.emailDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.emailDataGridView.CausesValidation = false;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.emailDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.emailDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.emailDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.emailTimeColum,
+            this.emailSendColum,
+            this.emailReceiveColum});
+            this.emailDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailDataGridView.Location = new System.Drawing.Point(3, 30);
+            this.emailDataGridView.Name = "emailDataGridView";
+            this.emailDataGridView.ReadOnly = true;
+            this.emailDataGridView.RowHeadersVisible = false;
+            this.emailDataGridView.RowTemplate.Height = 23;
+            this.emailDataGridView.ShowEditingIcon = false;
+            this.emailDataGridView.Size = new System.Drawing.Size(441, 651);
+            this.emailDataGridView.TabIndex = 0;
             // 
             // designatedestinationIPLabel
             // 
@@ -171,14 +182,6 @@
             this.designatedestinationIPLabel.Size = new System.Drawing.Size(128, 19);
             this.designatedestinationIPLabel.TabIndex = 14;
             this.designatedestinationIPLabel.Text = "指定收件方地址";
-            // 
-            // destinationTextBox
-            // 
-            this.destinationTextBox.Location = new System.Drawing.Point(41, 235);
-            this.destinationTextBox.Multiline = true;
-            this.destinationTextBox.Name = "destinationTextBox";
-            this.destinationTextBox.Size = new System.Drawing.Size(200, 24);
-            this.destinationTextBox.TabIndex = 13;
             // 
             // designatesourceIPLabel
             // 
@@ -197,6 +200,37 @@
             this.sourceTextBox.Name = "sourceTextBox";
             this.sourceTextBox.Size = new System.Drawing.Size(200, 24);
             this.sourceTextBox.TabIndex = 11;
+            // 
+            // currentUpButton
+            // 
+            this.currentUpButton.Font = new System.Drawing.Font("华文楷体", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.currentUpButton.Location = new System.Drawing.Point(41, 87);
+            this.currentUpButton.Name = "currentUpButton";
+            this.currentUpButton.Size = new System.Drawing.Size(90, 32);
+            this.currentUpButton.TabIndex = 18;
+            this.currentUpButton.Text = "上页";
+            this.currentUpButton.UseVisualStyleBackColor = true;
+            // 
+            // destinationTextBox
+            // 
+            this.destinationTextBox.Location = new System.Drawing.Point(41, 235);
+            this.destinationTextBox.Multiline = true;
+            this.destinationTextBox.Name = "destinationTextBox";
+            this.destinationTextBox.Size = new System.Drawing.Size(200, 24);
+            this.destinationTextBox.TabIndex = 13;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.emailDataGridView);
+            this.groupBox1.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.Location = new System.Drawing.Point(315, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(447, 684);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "邮件列表";
             // 
             // stopDateTimePicker
             // 
@@ -234,6 +268,39 @@
             this.startDateTimePicker.Size = new System.Drawing.Size(200, 24);
             this.startDateTimePicker.TabIndex = 8;
             // 
+            // recordGroupBox
+            // 
+            this.recordGroupBox.Controls.Add(this.label1);
+            this.recordGroupBox.Controls.Add(this.keywordTextBox);
+            this.recordGroupBox.Controls.Add(this.recordDownButton);
+            this.recordGroupBox.Controls.Add(this.recordUpButton);
+            this.recordGroupBox.Controls.Add(this.recordButton);
+            this.recordGroupBox.Controls.Add(this.designatedestinationIPLabel);
+            this.recordGroupBox.Controls.Add(this.destinationTextBox);
+            this.recordGroupBox.Controls.Add(this.designatesourceIPLabel);
+            this.recordGroupBox.Controls.Add(this.sourceTextBox);
+            this.recordGroupBox.Controls.Add(this.stopDateTimePicker);
+            this.recordGroupBox.Controls.Add(this.startTimeLabel);
+            this.recordGroupBox.Controls.Add(this.stopTimeLabel);
+            this.recordGroupBox.Controls.Add(this.startDateTimePicker);
+            this.recordGroupBox.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.recordGroupBox.Location = new System.Drawing.Point(9, 12);
+            this.recordGroupBox.Name = "recordGroupBox";
+            this.recordGroupBox.Size = new System.Drawing.Size(300, 461);
+            this.recordGroupBox.TabIndex = 16;
+            this.recordGroupBox.TabStop = false;
+            this.recordGroupBox.Text = "记录查询";
+            // 
+            // emailRichTextBox
+            // 
+            this.emailRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailRichTextBox.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailRichTextBox.Location = new System.Drawing.Point(3, 30);
+            this.emailRichTextBox.Name = "emailRichTextBox";
+            this.emailRichTextBox.Size = new System.Drawing.Size(404, 654);
+            this.emailRichTextBox.TabIndex = 13;
+            this.emailRichTextBox.Text = "";
+            // 
             // currentMonitoringGroupBox
             // 
             this.currentMonitoringGroupBox.Controls.Add(this.currentDownButton);
@@ -241,118 +308,50 @@
             this.currentMonitoringGroupBox.Controls.Add(this.startCurrentMonitoring);
             this.currentMonitoringGroupBox.Controls.Add(this.stopCurrentMonitoring);
             this.currentMonitoringGroupBox.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.currentMonitoringGroupBox.Location = new System.Drawing.Point(12, 517);
+            this.currentMonitoringGroupBox.Location = new System.Drawing.Point(9, 517);
             this.currentMonitoringGroupBox.Name = "currentMonitoringGroupBox";
             this.currentMonitoringGroupBox.Size = new System.Drawing.Size(300, 179);
-            this.currentMonitoringGroupBox.TabIndex = 13;
+            this.currentMonitoringGroupBox.TabIndex = 17;
             this.currentMonitoringGroupBox.TabStop = false;
             this.currentMonitoringGroupBox.Text = "实时监测";
             // 
-            // currentDownButton
+            // emailContent
             // 
-            this.currentDownButton.Font = new System.Drawing.Font("华文楷体", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.currentDownButton.Location = new System.Drawing.Point(151, 87);
-            this.currentDownButton.Name = "currentDownButton";
-            this.currentDownButton.Size = new System.Drawing.Size(90, 32);
-            this.currentDownButton.TabIndex = 19;
-            this.currentDownButton.Text = "下页";
-            this.currentDownButton.UseVisualStyleBackColor = true;
+            this.emailContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.emailContent.Controls.Add(this.emailRichTextBox);
+            this.emailContent.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.emailContent.Location = new System.Drawing.Point(765, 12);
+            this.emailContent.Name = "emailContent";
+            this.emailContent.Size = new System.Drawing.Size(410, 687);
+            this.emailContent.TabIndex = 15;
+            this.emailContent.TabStop = false;
+            this.emailContent.Text = "邮件内容";
             // 
-            // currentUpButton
+            // emailTimeColum
             // 
-            this.currentUpButton.Font = new System.Drawing.Font("华文楷体", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.currentUpButton.Location = new System.Drawing.Point(41, 87);
-            this.currentUpButton.Name = "currentUpButton";
-            this.currentUpButton.Size = new System.Drawing.Size(90, 32);
-            this.currentUpButton.TabIndex = 18;
-            this.currentUpButton.Text = "上页";
-            this.currentUpButton.UseVisualStyleBackColor = true;
-            // 
-            // startCurrentMonitoring
-            // 
-            this.startCurrentMonitoring.Font = new System.Drawing.Font("华文楷体", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.startCurrentMonitoring.Location = new System.Drawing.Point(42, 33);
-            this.startCurrentMonitoring.Name = "startCurrentMonitoring";
-            this.startCurrentMonitoring.Size = new System.Drawing.Size(200, 32);
-            this.startCurrentMonitoring.TabIndex = 4;
-            this.startCurrentMonitoring.Text = "开始监测";
-            this.startCurrentMonitoring.UseVisualStyleBackColor = true;
-            this.startCurrentMonitoring.Click += new System.EventHandler(this.startCurrentMonitoring_Click);
-            // 
-            // stopCurrentMonitoring
-            // 
-            this.stopCurrentMonitoring.Font = new System.Drawing.Font("华文楷体", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.stopCurrentMonitoring.Location = new System.Drawing.Point(41, 141);
-            this.stopCurrentMonitoring.Name = "stopCurrentMonitoring";
-            this.stopCurrentMonitoring.Size = new System.Drawing.Size(200, 32);
-            this.stopCurrentMonitoring.TabIndex = 5;
-            this.stopCurrentMonitoring.Text = "结束监测";
-            this.stopCurrentMonitoring.UseVisualStyleBackColor = true;
-            this.stopCurrentMonitoring.Click += new System.EventHandler(this.stopCurrentMonitoring_Click);
-            // 
-            // emailDataGridView
-            // 
-            this.emailDataGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.emailDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.emailDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.emailDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.emailDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.emailSendColum,
-            this.emailReceiveColum,
-            this.emailTimeColum});
-            this.emailDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailDataGridView.Location = new System.Drawing.Point(3, 30);
-            this.emailDataGridView.Name = "emailDataGridView";
-            this.emailDataGridView.ReadOnly = true;
-            this.emailDataGridView.RowTemplate.Height = 23;
-            this.emailDataGridView.ShowEditingIcon = false;
-            this.emailDataGridView.Size = new System.Drawing.Size(441, 651);
-            this.emailDataGridView.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.emailDataGridView);
-            this.groupBox1.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(318, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(447, 684);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "邮件列表";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.emailTimeColum.DefaultCellStyle = dataGridViewCellStyle13;
+            this.emailTimeColum.HeaderText = "时间";
+            this.emailTimeColum.Name = "emailTimeColum";
+            this.emailTimeColum.ReadOnly = true;
             // 
             // emailSendColum
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.emailSendColum.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.emailSendColum.DefaultCellStyle = dataGridViewCellStyle14;
             this.emailSendColum.HeaderText = "发件方";
             this.emailSendColum.Name = "emailSendColum";
             this.emailSendColum.ReadOnly = true;
             // 
             // emailReceiveColum
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.emailReceiveColum.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.emailReceiveColum.DefaultCellStyle = dataGridViewCellStyle15;
             this.emailReceiveColum.HeaderText = "收件方";
             this.emailReceiveColum.Name = "emailReceiveColum";
             this.emailReceiveColum.ReadOnly = true;
-            // 
-            // emailTimeColum
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.emailTimeColum.DefaultCellStyle = dataGridViewCellStyle5;
-            this.emailTimeColum.HeaderText = "时间";
-            this.emailTimeColum.Name = "emailTimeColum";
-            this.emailTimeColum.ReadOnly = true;
             // 
             // EmailForm
             // 
@@ -360,56 +359,49 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 711);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.currentMonitoringGroupBox);
             this.Controls.Add(this.recordGroupBox);
+            this.Controls.Add(this.currentMonitoringGroupBox);
             this.Controls.Add(this.emailContent);
             this.Name = "EmailForm";
             this.Text = "GodEye-邮件监测";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmailForm_FormClosing);
             this.Load += new System.EventHandler(this.EmailForm_Load);
-            this.Resize += new System.EventHandler(this.EmailForm_Resize);
-            this.emailContent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.emailDataGridView)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.recordGroupBox.ResumeLayout(false);
             this.recordGroupBox.PerformLayout();
             this.currentMonitoringGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.emailDataGridView)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.emailContent.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox emailContent;
-        private System.Windows.Forms.RichTextBox emailRichTextBox;
-        private System.Windows.Forms.GroupBox recordGroupBox;
+        private System.Windows.Forms.Button currentDownButton;
+        private System.Windows.Forms.Button startCurrentMonitoring;
+        private System.Windows.Forms.Button stopCurrentMonitoring;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox keywordTextBox;
         private System.Windows.Forms.Button recordDownButton;
         private System.Windows.Forms.Button recordUpButton;
         private System.Windows.Forms.Button recordButton;
+        private System.Windows.Forms.DataGridView emailDataGridView;
         private System.Windows.Forms.Label designatedestinationIPLabel;
-        private System.Windows.Forms.TextBox destinationTextBox;
         private System.Windows.Forms.Label designatesourceIPLabel;
         private System.Windows.Forms.TextBox sourceTextBox;
+        private System.Windows.Forms.Button currentUpButton;
+        private System.Windows.Forms.TextBox destinationTextBox;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker stopDateTimePicker;
         private System.Windows.Forms.Label startTimeLabel;
         private System.Windows.Forms.Label stopTimeLabel;
         private System.Windows.Forms.DateTimePicker startDateTimePicker;
+        private System.Windows.Forms.GroupBox recordGroupBox;
+        private System.Windows.Forms.RichTextBox emailRichTextBox;
         private System.Windows.Forms.GroupBox currentMonitoringGroupBox;
-        private System.Windows.Forms.Button currentDownButton;
-        private System.Windows.Forms.Button currentUpButton;
-        private System.Windows.Forms.Button startCurrentMonitoring;
-        private System.Windows.Forms.Button stopCurrentMonitoring;
-        private System.Windows.Forms.DataGridView emailDataGridView;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox keywordTextBox;
-
-        //查询记录string
-        private string recordButtonString = "recordButton";
-        private string startCurrentMonitoringString = "startCurrentMonitoring";
-        private string stopCurrentMonitoringString = "stopCurrentMonitoring";
+        private System.Windows.Forms.GroupBox emailContent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailTimeColum;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailSendColum;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailReceiveColum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailTimeColum;
     }
 }

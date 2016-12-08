@@ -44,7 +44,8 @@ namespace GodEye
         delegate void DataGridRowsShowHandler(RawCapture packet);
         DataBuilder rowsBulider = new DataBuilder();//规范化数据
         uint packetIndex = 0;//包计数索引
-
+        LinkMySQL lmysql = new LinkMySQL();
+        
         /// <summary>
         /// 用户行为引用
         /// </summary>
@@ -77,9 +78,14 @@ namespace GodEye
             this.StartPosition = FormStartPosition.CenterScreen;//设置窗体居屏幕中央
             this.Opacity = 0.92;
             InitChart();
+            //lmysql.test();
         }
 
         System.Windows.Forms.Timer chartTimer = new System.Windows.Forms.Timer();
+
+        /// <summary>
+        /// 
+        /// </summary>
         private void InitChart()
         {
             DateTime time = DateTime.Now;
@@ -101,6 +107,11 @@ namespace GodEye
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chartflow_DoubleClick(object sender, EventArgs e)
         {
             chartflow.ChartAreas[0].AxisX.ScaleView.Size = 5;
@@ -109,6 +120,11 @@ namespace GodEye
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chartTimer_Tick(object sender, EventArgs e)
         {
             Random ra = new Random();
@@ -137,38 +153,6 @@ namespace GodEye
                     staffForm.TopMost = true;
                 }
             }
-        }
-
-        private void emailMonitoringOpenLabel_Click(object sender, EventArgs e)
-        {
-            if (emailForm == null)
-            {
-                emailForm = new EmailForm();
-                emailForm.Show();
-            }
-            else
-            {
-                if (emailForm.IsDisposed)
-                {
-                    emailForm = new EmailForm();
-                    emailForm.Show();
-                }
-                else
-                {
-                    emailForm.WindowState = FormWindowState.Normal;
-                    emailForm.TopMost = true;
-                }
-            }
-        }
-
-        private void qqLoginPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void emailMonitoringPanel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -436,9 +420,48 @@ namespace GodEye
             Stop();
         }
 
-        private void staffMonitoringPanel_Paint(object sender, PaintEventArgs e)
+        private void emailMonitoringOpenLabel_Click(object sender, EventArgs e)
         {
+            if (emailForm == null)
+            {
+                emailForm = new EmailForm();
+                emailForm.Show();
+            }
+            else
+            {
+                if (emailForm.IsDisposed)
+                {
+                    emailForm = new EmailForm();
+                    emailForm.Show();
+                }
+                else
+                {
+                    emailForm.WindowState = FormWindowState.Normal;
+                    emailForm.TopMost = true;
+                }
+            }
+        }
 
+        private void emailMonitoringPanel_Click(object sender, EventArgs e)
+        {
+            if (emailForm == null)
+            {
+                emailForm = new EmailForm();
+                emailForm.Show();
+            }
+            else
+            {
+                if (emailForm.IsDisposed)
+                {
+                    emailForm = new EmailForm();
+                    emailForm.Show();
+                }
+                else
+                {
+                    emailForm.WindowState = FormWindowState.Normal;
+                    emailForm.TopMost = true;
+                }
+            }
         }
     }
 
