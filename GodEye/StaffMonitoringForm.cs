@@ -17,11 +17,41 @@ namespace GodEye
     public partial class StaffMonitoringForm : Form
     {
 
+        private Hashtable ht;
+        //使用多线程计时器
+        private System.Timers.Timer timer = new System.Timers.Timer();
+
         public StaffMonitoringForm()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;//设置窗体居屏幕中央
             this.Opacity = 0.92;
+            timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
+            timer.Enabled = true;
+            Init();
+
+        }
+
+        private void Init()
+        {
+            ht = new Hashtable();
+            ht.Add("121.194.7.215", "访问淘宝网站");
+            ht.Add("182.140.245.49", "访问淘宝网站");
+            ht.Add("182.140.246.253", "访问淘宝网站");
+            ht.Add("121.9.212.177", "访问淘宝网站");
+            ht.Add("121.9.212.176", "访问淘宝网站");
+            ht.Add("118.123.203.254", "访问淘宝网站");
+            ht.Add("183.56.147.1", "访问京东商城");
+            ht.Add("59.111.0.50", "访问游戏：魔兽世界");
+            ht.Add("183.6.245.191", "访问游戏：阴阳师");
+
+
+        }
+
+        void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            Init();
+            System.Threading.Thread.Sleep(20000);
         }
 
         Thread RealTimeDataThread;
@@ -140,7 +170,7 @@ namespace GodEye
                 }
                 else
                 {
-                    lock(pbList.SyncRoot)
+                    lock (pbList.SyncRoot)
                     {
                         lock (bufferLock)
                         {
@@ -158,20 +188,36 @@ namespace GodEye
 
         private void ShowDataRows(ProcessingBehave pb)
         {
+
+            foreach (String key in ht.Keys)
+            {
+
+                if (pb.UserIPA.Contains(key) || pb.UserIPB.Contains(key))
+                {
+
+                    record(pb, (String)ht[key], key);
+                }
+            }
+            
+        }
+
+        private void record(ProcessingBehave pb, string method, String key)
+        {
+            rowsLine[1] = pb.UserIPA;
+            rowsLine[2] = pb.UserIPB;
+            rowsLine[3] = pb.Reason;
+            rowsLine[0] = pb.Time;
+            rowsLine[4] = method;
             try
             {
-                rowsLine[1] = pb.UserIPA;
-                rowsLine[2] = pb.UserIPB;
-                rowsLine[3] = pb.Protocol;
-                rowsLine[0] = pb.Time;
-                rowsLine[4] = pb.Reason;
                 monitoringResultslistView.Rows.Add(rowsLine);
+                //ht.Remove(key);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
+            
         }
 
         /// <summary>
