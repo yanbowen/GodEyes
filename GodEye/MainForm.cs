@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,8 @@ namespace GodEye
 
     public partial class MainForm : Form
     {
-
+        private Hashtable ht;
+        private System.Timers.Timer timer2 = new System.Timers.Timer();
         /// <summary>
         /// 成员变量
         /// dalong
@@ -70,6 +72,9 @@ namespace GodEye
         /// QQ上下线单例列表
         /// </summary>
         ProcessingQQLoginLogoutList<ProcessingQQLoginLogout> pqllList = ProcessingQQLoginLogoutList<ProcessingQQLoginLogout>.GetInstance();
+
+        ProcessingAllData rowData;
+
         #endregion
 
         public MainForm()
@@ -78,8 +83,44 @@ namespace GodEye
             this.StartPosition = FormStartPosition.CenterScreen;//设置窗体居屏幕中央
             this.Opacity = 0.92;
             InitChart();
+            Init();
+            timer2.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
+            timer2.Interval = 120000;
+            timer2.Start();
             //lmysql.test();
         }
+
+        private void Init()
+        {
+            ht = new Hashtable();
+            ht.Add("taobao", "访问淘宝网站");
+            ht.Add("jd.com", "访问京东商城");
+            ht.Add("blizzard", "访问游戏：魔兽世界");
+            ht.Add("douyu", "访问斗鱼直播平台");
+
+        }
+
+        void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            if (!ht.ContainsKey("taobao"))
+            {
+                ht.Add("taobao", "访问淘宝网站");
+            }
+            else if (!ht.ContainsKey("jd.com"))
+            {
+                ht.Add("jd.com", "访问京东商城");
+            }
+            else if (!ht.ContainsKey("blizzard"))
+            {
+                ht.Add("blizzard", "访问游戏：魔兽世界");
+            }
+            else if (!ht.ContainsKey("douyu"))
+            {
+                ht.Add("douyu", "访问斗鱼直播平台");
+            }
+
+        }
+
 
         System.Windows.Forms.Timer chartTimer = new System.Windows.Forms.Timer();
 
@@ -374,20 +415,39 @@ namespace GodEye
         {
             try
             {
-                string[] rowsLinebuffer = new string[6];
+                string[] rowsLinebuffer = new string[7];
                 rowsLinebuffer = rowsBulider.Row(packet, ++packetIndex);
-                pb = new ProcessingBehave();
-                pb.Time = DateTime.Now.ToString("hh:mm:ss:fff");
-                pb.UserIPA = rowsLinebuffer[3];
-                pb.UserIPB = rowsLinebuffer[4];
-                pb.Protocol = rowsLinebuffer[1];
-                pb.Reason = rowsLinebuffer[5];
-                pb.Caption = HexConvert.ConvertToHexText(packet.Data);
-                lock (pbList.SyncRoot)
+                if (rowsLinebuffer[1] == "TCP" || rowsLinebuffer[1] == "SMTP"|| rowsLinebuffer[1] == "POP3"|| rowsLinebuffer[1] == "HTTP"|| rowsLinebuffer[1] == "QICQ")
                 {
-                    pbList.Add(pb);
+
+                    rowData = new ProcessingAllData();
+                    rowData.Id = rowsLinebuffer[0];
+                    rowData.Protocol = rowsLinebuffer[1];
+                    rowData.Length = rowsLinebuffer[2];
+                    rowData.SourceAddress = rowsLinebuffer[3];
+                    rowData.DestinationAddress = rowsLinebuffer[4];
+                    rowData.HardwareType = rowsLinebuffer[5];
+                    rowData.Time = rowsLinebuffer[6];
+                    rowData.BinaryData = packet.Data; //?
+                    rowData.Data = HexConvert.ConvertToAscii(packet.Data);
+
+                    //邮件分析
+                    if (rowsLinebuffer[1] == "SMTP" || rowsLinebuffer[1] == "POP3")
+                    {
+                        pe = new ProcessingEmail();
+                        pe.Analysis(rowData);
+                        peList.Add(pe);
+                    }
+                    //员工行为
+                    if (rowsLinebuffer[1] == "TCP" || rowsLinebuffer[1] == "HTTP")
+                    {
+                        pb = new ProcessingBehave();
+                        String key = pb.Analysis(rowData,ht, pbList);
+
+                        if(!key.Equals("key")) ht.Remove(key);
+                    }
+
                 }
-                behaveList.Add(pb);
             }
             catch (Exception ex)
             {

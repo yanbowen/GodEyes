@@ -79,7 +79,7 @@ namespace GodEye
             this.dataMonitoringGroupBox.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dataMonitoringGroupBox.Location = new System.Drawing.Point(407, 31);
             this.dataMonitoringGroupBox.Name = "dataMonitoringGroupBox";
-            this.dataMonitoringGroupBox.Size = new System.Drawing.Size(1002, 688);
+            this.dataMonitoringGroupBox.Size = new System.Drawing.Size(935, 688);
             this.dataMonitoringGroupBox.TabIndex = 0;
             this.dataMonitoringGroupBox.TabStop = false;
             this.dataMonitoringGroupBox.Text = "流量监测";
@@ -115,7 +115,7 @@ namespace GodEye
             series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Time;
             this.chartflow.Series.Add(series1);
             this.chartflow.Series.Add(series2);
-            this.chartflow.Size = new System.Drawing.Size(990, 649);
+            this.chartflow.Size = new System.Drawing.Size(923, 649);
             this.chartflow.TabIndex = 0;
             this.chartflow.Text = "chartflow";
             // 
@@ -316,7 +316,7 @@ namespace GodEye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1421, 731);
+            this.ClientSize = new System.Drawing.Size(1354, 731);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);

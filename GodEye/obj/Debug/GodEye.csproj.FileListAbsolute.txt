@@ -1,15 +1,30 @@
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\bin\Debug\GodEye.exe.config
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.csprojResolveAssemblyReference.cache
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.ChartFormTest.resources
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.EmailForm.resources
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.MainForm.resources
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.ProcessingEmailForm.resources
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.StaffMonitoringForm.resources
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.Properties.Resources.resources
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.csproj.GenerateResource.Cache
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\bin\Debug\GodEye.exe
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\bin\Debug\GodEye.pdb
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\bin\Debug\SharpPcap.xml
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.csproj.GodEye.exe.config
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.exe
-C:\yanbowen\documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.pdb
+D:\文档\GitHub\GodEyeDemo\GodEye\bin\Debug\GodEye.exe.config
+D:\文档\GitHub\GodEyeDemo\GodEye\obj\Debug\GodEye.csprojResolveAssemblyReference.cache
+D:\文档\GitHub\GodEyeDemo\GodEye\obj\Debug\GodEye.ChartFormTest.resources
+D:\文档\GitHub\GodEyeDemo\GodEye\obj\Debug\GodEye.EmailForm.resources
+D:\文档\GitHub\GodEyeDemo\GodEye\obj\Debug\GodEye.MainForm.resources
+D:\文档\GitHub\GodEyeDemo\GodEye\obj\Debug\GodEye.ProcessingEmailForm.resources
+D:\文档\GitHub\GodEyeDemo\GodEye\obj\Debug\GodEye.StaffMonitoringForm.resources
+D:\文档\GitHub\GodEyeDemo\GodEye\obj\Debug\GodEye.Properties.Resources.resources
+D:\文档\GitHub\GodEyeDemo\GodEye\obj\Debug\GodEye.csproj.GenerateResource.Cache
+D:\文档\GitHub\GodEyeDemo\GodEye\bin\Debug\GodEye.exe
+D:\文档\GitHub\GodEyeDemo\GodEye\bin\Debug\GodEye.pdb
+D:\文档\GitHub\GodEyeDemo\GodEye\bin\Debug\SharpPcap.xml
+D:\文档\GitHub\GodEyeDemo\GodEye\obj\Debug\GodEye.csproj.GodEye.exe.config
+D:\文档\GitHub\GodEyeDemo\GodEye\obj\Debug\GodEye.exe
+D:\文档\GitHub\GodEyeDemo\GodEye\obj\Debug\GodEye.pdb
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\bin\Debug\GodEye.exe.config
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.exe
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.pdb
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\bin\Debug\GodEye.exe
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\bin\Debug\GodEye.pdb
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\bin\Debug\SharpPcap.xml
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.csprojResolveAssemblyReference.cache
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.csproj.GodEye.exe.config
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.ChartFormTest.resources
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.EmailForm.resources
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.MainForm.resources
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.ProcessingEmailForm.resources
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.StaffMonitoringForm.resources
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.Properties.Resources.resources
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.csproj.GenerateResource.Cache

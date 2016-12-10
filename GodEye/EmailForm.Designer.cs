@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.currentDownButton = new System.Windows.Forms.Button();
             this.startCurrentMonitoring = new System.Windows.Forms.Button();
             this.stopCurrentMonitoring = new System.Windows.Forms.Button();
@@ -42,6 +42,9 @@
             this.recordUpButton = new System.Windows.Forms.Button();
             this.recordButton = new System.Windows.Forms.Button();
             this.emailDataGridView = new System.Windows.Forms.DataGridView();
+            this.emailTimeColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailSendColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailReceiveColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.designatedestinationIPLabel = new System.Windows.Forms.Label();
             this.designatesourceIPLabel = new System.Windows.Forms.Label();
             this.sourceTextBox = new System.Windows.Forms.TextBox();
@@ -53,12 +56,9 @@
             this.stopTimeLabel = new System.Windows.Forms.Label();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.recordGroupBox = new System.Windows.Forms.GroupBox();
-            this.emailRichTextBox = new System.Windows.Forms.RichTextBox();
             this.currentMonitoringGroupBox = new System.Windows.Forms.GroupBox();
             this.emailContent = new System.Windows.Forms.GroupBox();
-            this.emailTimeColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailSendColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailReceiveColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailBrowser = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.emailDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.recordGroupBox.SuspendLayout();
@@ -147,17 +147,17 @@
             // emailDataGridView
             // 
             this.emailDataGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.emailDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.emailDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.emailDataGridView.CausesValidation = false;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.emailDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.emailDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.emailDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.emailDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.emailTimeColum,
@@ -172,6 +172,30 @@
             this.emailDataGridView.ShowEditingIcon = false;
             this.emailDataGridView.Size = new System.Drawing.Size(441, 651);
             this.emailDataGridView.TabIndex = 0;
+            // 
+            // emailTimeColum
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.emailTimeColum.DefaultCellStyle = dataGridViewCellStyle3;
+            this.emailTimeColum.HeaderText = "时间";
+            this.emailTimeColum.Name = "emailTimeColum";
+            this.emailTimeColum.ReadOnly = true;
+            // 
+            // emailSendColum
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.emailSendColum.DefaultCellStyle = dataGridViewCellStyle4;
+            this.emailSendColum.HeaderText = "发件方";
+            this.emailSendColum.Name = "emailSendColum";
+            this.emailSendColum.ReadOnly = true;
+            // 
+            // emailReceiveColum
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.emailReceiveColum.DefaultCellStyle = dataGridViewCellStyle5;
+            this.emailReceiveColum.HeaderText = "收件方";
+            this.emailReceiveColum.Name = "emailReceiveColum";
+            this.emailReceiveColum.ReadOnly = true;
             // 
             // designatedestinationIPLabel
             // 
@@ -291,16 +315,6 @@
             this.recordGroupBox.TabStop = false;
             this.recordGroupBox.Text = "记录查询";
             // 
-            // emailRichTextBox
-            // 
-            this.emailRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailRichTextBox.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailRichTextBox.Location = new System.Drawing.Point(3, 30);
-            this.emailRichTextBox.Name = "emailRichTextBox";
-            this.emailRichTextBox.Size = new System.Drawing.Size(404, 654);
-            this.emailRichTextBox.TabIndex = 13;
-            this.emailRichTextBox.Text = "";
-            // 
             // currentMonitoringGroupBox
             // 
             this.currentMonitoringGroupBox.Controls.Add(this.currentDownButton);
@@ -320,7 +334,7 @@
             this.emailContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.emailContent.Controls.Add(this.emailRichTextBox);
+            this.emailContent.Controls.Add(this.emailBrowser);
             this.emailContent.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.emailContent.Location = new System.Drawing.Point(765, 12);
             this.emailContent.Name = "emailContent";
@@ -329,29 +343,14 @@
             this.emailContent.TabStop = false;
             this.emailContent.Text = "邮件内容";
             // 
-            // emailTimeColum
+            // emailBrowser
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.emailTimeColum.DefaultCellStyle = dataGridViewCellStyle13;
-            this.emailTimeColum.HeaderText = "时间";
-            this.emailTimeColum.Name = "emailTimeColum";
-            this.emailTimeColum.ReadOnly = true;
-            // 
-            // emailSendColum
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.emailSendColum.DefaultCellStyle = dataGridViewCellStyle14;
-            this.emailSendColum.HeaderText = "发件方";
-            this.emailSendColum.Name = "emailSendColum";
-            this.emailSendColum.ReadOnly = true;
-            // 
-            // emailReceiveColum
-            // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.emailReceiveColum.DefaultCellStyle = dataGridViewCellStyle15;
-            this.emailReceiveColum.HeaderText = "收件方";
-            this.emailReceiveColum.Name = "emailReceiveColum";
-            this.emailReceiveColum.ReadOnly = true;
+            this.emailBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailBrowser.Location = new System.Drawing.Point(3, 30);
+            this.emailBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.emailBrowser.Name = "emailBrowser";
+            this.emailBrowser.Size = new System.Drawing.Size(404, 654);
+            this.emailBrowser.TabIndex = 0;
             // 
             // EmailForm
             // 
@@ -397,11 +396,11 @@
         private System.Windows.Forms.Label stopTimeLabel;
         private System.Windows.Forms.DateTimePicker startDateTimePicker;
         private System.Windows.Forms.GroupBox recordGroupBox;
-        private System.Windows.Forms.RichTextBox emailRichTextBox;
         private System.Windows.Forms.GroupBox currentMonitoringGroupBox;
         private System.Windows.Forms.GroupBox emailContent;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailTimeColum;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailSendColum;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailReceiveColum;
+        private System.Windows.Forms.WebBrowser emailBrowser;
     }
 }

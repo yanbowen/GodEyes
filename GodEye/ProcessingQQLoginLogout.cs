@@ -64,5 +64,10 @@ namespace GodEye
                 time = value;
             }
         }
+
+        public void Analysis(ProcessingAllData data)
+        {
+
+        }
     }
 }

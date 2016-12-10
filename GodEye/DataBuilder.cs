@@ -19,7 +19,7 @@ namespace GodEye
         /// <returns>返回字符串数据</returns>
         public string[] Row(RawCapture rawPacket, uint packetID)
         {
-            string[] rows = new string[6];
+            string[] rows = new string[7];
 
             rows[0] = string.Format("{0:D7}", packetID);//编号
             rows[1] = "Unknown";
@@ -27,6 +27,7 @@ namespace GodEye
             rows[3] = "--";
             rows[4] = "--";
             rows[5] = "--";
+            rows[6] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff");
 
             Packet packet = Packet.ParsePacket(rawPacket.LinkLayerType, rawPacket.Data);
 
@@ -62,7 +63,7 @@ namespace GodEye
                         rows[4] += " [" + tcp.DestinationPort.ToString() + "]";
 
                         #region 25:smtp协议;80, 8080, 3128: Http; 21: FTP;
-                        if (tcp.DestinationPort.ToString() == "25")
+                        if (tcp.DestinationPort.ToString() == "25"|| tcp.SourcePort.ToString() == "25")
                         {
                             rows[1] = "SMTP";
                         }
@@ -74,13 +75,24 @@ namespace GodEye
                         {
                             rows[1] = "FTP";
                         }
+                        else if (tcp.DestinationPort.ToString() == "143")
+                        {
+                            rows[1] = "POP3";
+                        }
                         #endregion
                         return rows;
                     }
                     UdpPacket udp = UdpPacket.GetEncapsulated(packet);
                     if (udp != null)
                     {
-                        rows[1] = "UDP";
+                        if (rawPacket.Data[42] == ((byte)02))
+                        {
+                            rows[1] = "QICQ";
+                        }
+                        else
+                        {
+                            rows[1] = "UDP";
+                        }
                         rows[3] += " [" + udp.SourcePort.ToString() + "]";
                         rows[4] += " [" + udp.DestinationPort.ToString() + "]";
                         return rows;
