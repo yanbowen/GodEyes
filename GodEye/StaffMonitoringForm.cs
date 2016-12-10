@@ -260,7 +260,6 @@ namespace GodEye
             //int i = Convert.ToInt32(monitoringResultslistView.Rows[index].Cells[0].Value.ToString());
             //if (i > pbListBuffer.Count)
             //    return;
-            richTextBox1.Text = ((ProcessingBehave)pbListBuffer[index]).Caption;
         }
     }
 }

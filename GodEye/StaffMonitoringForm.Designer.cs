@@ -46,7 +46,6 @@ namespace GodEye
             this.rowDestinationIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rowProtocol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rowReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.startTimeLabel = new System.Windows.Forms.Label();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.stopTimeLabel = new System.Windows.Forms.Label();
@@ -62,12 +61,10 @@ namespace GodEye
             this.currentMonitoringGroupBox = new System.Windows.Forms.GroupBox();
             this.currentDownButton = new System.Windows.Forms.Button();
             this.currentUpButton = new System.Windows.Forms.Button();
-            this.detail = new System.Windows.Forms.GroupBox();
             this.monitoringResultsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monitoringResultslistView)).BeginInit();
             this.recordGroupBox.SuspendLayout();
             this.currentMonitoringGroupBox.SuspendLayout();
-            this.detail.SuspendLayout();
             this.SuspendLayout();
             // 
             // networkGames
@@ -125,7 +122,7 @@ namespace GodEye
             this.monitoringResultsGroupBox.Font = new System.Drawing.Font("华文楷体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.monitoringResultsGroupBox.Location = new System.Drawing.Point(319, 32);
             this.monitoringResultsGroupBox.Name = "monitoringResultsGroupBox";
-            this.monitoringResultsGroupBox.Size = new System.Drawing.Size(819, 497);
+            this.monitoringResultsGroupBox.Size = new System.Drawing.Size(853, 646);
             this.monitoringResultsGroupBox.TabIndex = 6;
             this.monitoringResultsGroupBox.TabStop = false;
             this.monitoringResultsGroupBox.Text = "检测结果";
@@ -166,7 +163,7 @@ namespace GodEye
             this.monitoringResultslistView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.monitoringResultslistView.RowTemplate.Height = 23;
             this.monitoringResultslistView.ShowEditingIcon = false;
-            this.monitoringResultslistView.Size = new System.Drawing.Size(813, 463);
+            this.monitoringResultslistView.Size = new System.Drawing.Size(847, 612);
             this.monitoringResultslistView.TabIndex = 0;
             this.monitoringResultslistView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.monitoringResultslistView_CellMouseDown);
             this.monitoringResultslistView.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.monitoringResultslistView_ColumnWidthChanged);
@@ -200,16 +197,6 @@ namespace GodEye
             this.rowReason.HeaderText = "原因";
             this.rowReason.Name = "rowReason";
             this.rowReason.ReadOnly = true;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(3, 17);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(807, 147);
-            this.richTextBox1.TabIndex = 12;
-            this.richTextBox1.Text = "";
             // 
             // startTimeLabel
             // 
@@ -372,23 +359,11 @@ namespace GodEye
             this.currentUpButton.Text = "上页";
             this.currentUpButton.UseVisualStyleBackColor = true;
             // 
-            // detail
-            // 
-            this.detail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.detail.Controls.Add(this.richTextBox1);
-            this.detail.Location = new System.Drawing.Point(322, 532);
-            this.detail.Name = "detail";
-            this.detail.Size = new System.Drawing.Size(813, 167);
-            this.detail.TabIndex = 12;
-            this.detail.TabStop = false;
-            this.detail.Text = "内容";
-            // 
             // StaffMonitoringForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 711);
-            this.Controls.Add(this.detail);
             this.Controls.Add(this.currentMonitoringGroupBox);
             this.Controls.Add(this.recordGroupBox);
             this.Controls.Add(this.monitoringResultsGroupBox);
@@ -404,7 +379,6 @@ namespace GodEye
             this.recordGroupBox.ResumeLayout(false);
             this.recordGroupBox.PerformLayout();
             this.currentMonitoringGroupBox.ResumeLayout(false);
-            this.detail.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -448,13 +422,11 @@ namespace GodEye
         private string recordButtonString = "recordButton";
         private string startCurrentMonitoringString = "startCurrentMonitoring";
         private string stopCurrentMonitoringString = "stopCurrentMonitoring";
-        private RichTextBox richTextBox1;
         private DataGridViewTextBoxColumn rowTime;
         private DataGridViewTextBoxColumn rowSourceIP;
         private DataGridViewTextBoxColumn rowDestinationIP;
         private DataGridViewTextBoxColumn rowProtocol;
         private DataGridViewTextBoxColumn rowReason;
-        private GroupBox detail;
     }
 }
 
