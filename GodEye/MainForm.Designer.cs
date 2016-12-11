@@ -171,6 +171,7 @@ namespace GodEye
             this.qqLoginPanel.Name = "qqLoginPanel";
             this.qqLoginPanel.Size = new System.Drawing.Size(364, 100);
             this.qqLoginPanel.TabIndex = 7;
+            this.qqLoginPanel.Click += new System.EventHandler(this.qqLoginOpenLabel_Click);
             // 
             // qqLoginOpenLabel
             // 
@@ -181,6 +182,7 @@ namespace GodEye
             this.qqLoginOpenLabel.Size = new System.Drawing.Size(163, 30);
             this.qqLoginOpenLabel.TabIndex = 1;
             this.qqLoginOpenLabel.Text = "QQ登录监测";
+            this.qqLoginOpenLabel.Click += new System.EventHandler(this.qqLoginOpenLabel_Click);
             // 
             // qqNoticeLabel
             // 

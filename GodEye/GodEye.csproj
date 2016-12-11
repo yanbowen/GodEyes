@@ -115,6 +115,12 @@
     <Compile Include="ProcessingEmailList.cs" />
     <Compile Include="ProcessingQQLoginLogout.cs" />
     <Compile Include="ProcessingQQLoginLogoutList.cs" />
+    <Compile Include="QQForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QQForm.Designer.cs">
+      <DependentUpon>QQForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StaffMonitoringForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProcessingEmailForm.resx">
       <DependentUpon>ProcessingEmailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QQForm.resx">
+      <DependentUpon>QQForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffMonitoringForm.resx">
       <DependentUpon>StaffMonitoringForm.cs</DependentUpon>

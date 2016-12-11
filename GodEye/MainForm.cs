@@ -29,6 +29,7 @@ namespace GodEye
         #region
         private StaffMonitoringForm staffForm;
         private EmailForm emailForm;
+        private QQForm qqForm;
         ICaptureDevice device;// 定义设备
         List<RawCapture> packetList = new List<RawCapture>();//捕获的数据列表
         List<RawCapture> bufferList;//缓存列表
@@ -522,7 +523,31 @@ namespace GodEye
                     emailForm.TopMost = true;
                 }
             }
+
         }
+
+        private void qqLoginOpenLabel_Click(object sender, EventArgs e)
+        {
+            if (qqForm == null)
+            {
+                qqForm = new QQForm();
+                qqForm.Show();
+            }
+            else
+            {
+                if (qqForm.IsDisposed)
+                {
+                    qqForm = new QQForm();
+                    qqForm.Show();
+                }
+                else
+                {
+                    qqForm.WindowState = FormWindowState.Normal;
+                    qqForm.TopMost = true;
+                }
+            }
+        }
+
     }
 
 }

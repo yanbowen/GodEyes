@@ -28,3 +28,4 @@ C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\D
 C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.StaffMonitoringForm.resources
 C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.Properties.Resources.resources
 C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.csproj.GenerateResource.Cache
+C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.QQForm.resources
