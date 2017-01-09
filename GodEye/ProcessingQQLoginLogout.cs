@@ -71,12 +71,12 @@ namespace GodEye
                 data.BinaryData[51] * 256 + data.BinaryData[52]).ToString();
             this.Time = data.Time;
             this.QqIP = data.SourceAddress;
-            if (data.BinaryData[45] == (byte)(00) && data.BinaryData[46] == (byte)(01))
+            if (data.BinaryData[45] == (byte)(0x08) && data.BinaryData[46] == (byte)(0x25))
             {
                 this.QqLogin = 1;
                 return 1;
             }
-            else if (data.BinaryData[45] == (byte)(00) && data.BinaryData[46] == (byte)(62))
+            else if (data.BinaryData[45] == (byte)(0x00) && data.BinaryData[46] == (byte)(0x59))
             {
                 this.QqLogin = 2;
                 return 1;

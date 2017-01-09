@@ -47,7 +47,6 @@ namespace GodEye
         delegate void DataGridRowsShowHandler(RawCapture packet);
         DataBuilder rowsBulider = new DataBuilder();//规范化数据
         uint packetIndex = 0;//包计数索引
-        LinkMySQL lmysql = new LinkMySQL();
         
         /// <summary>
         /// 用户行为引用
@@ -79,7 +78,13 @@ namespace GodEye
 
         ProcessingAllDataList<ProcessingAllData> padList = ProcessingAllDataList<ProcessingAllData>.GetInstance();
 
-        System.Windows.Forms.Timer chartTimer = new System.Windows.Forms.Timer();
+        List<ProcessingAllData> padBufferList = new List<ProcessingAllData>();
+        List<ProcessingEmail> peBufferList = new List<ProcessingEmail>();
+        List<ProcessingBehave> pbBufferList = new List<ProcessingBehave>();
+        List<ProcessingQQLoginLogout> pqllBufferList = new List<ProcessingQQLoginLogout>();
+
+        SaveAllToSQL saveAllData = new SaveAllToSQL();
+        //LinkMySQL linkSQL = new LinkMySQL();
 
         private int countQQ=0;
         private int countEmail=0;
@@ -92,7 +97,6 @@ namespace GodEye
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;//设置窗体居屏幕中央
             this.Opacity = 0.92;
-            
             Init();
             timer2.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
             timer2.Interval = 120000;
@@ -130,7 +134,7 @@ namespace GodEye
             }
 
         }
-        
+        System.Windows.Forms.Timer chartTimer = new System.Windows.Forms.Timer();
 
         /// <summary>
         /// 
@@ -145,9 +149,6 @@ namespace GodEye
             Series series = chartflow.Series[0];
             series.ChartType = SeriesChartType.Spline;
             series.IsVisibleInLegend = false;
-            //Series series1 = chartflow.Series[1];
-            //series1.ChartType = SeriesChartType.Spline;
-            //series1.IsVisibleInLegend = false;
 
             chartflow.ChartAreas[0].AxisX.LabelStyle.Format = "HH:mm:ss";
             chartflow.ChartAreas[0].AxisX.ScaleView.Size = 5;
@@ -193,7 +194,7 @@ namespace GodEye
                     //Random ra = new Random();
                     Series series = chartflow.Series[0];
                     //series.Points.AddXY(DateTime.Now, ra.Next(1, 10));
-                    series.Points.AddXY(DateTime.Now, length / 1024 );
+                    series.Points.AddXY(DateTime.Now, length / 1024);
                     chartflow.ChartAreas[0].AxisX.ScaleView.Position = series.Points.Count - 5;
                 }
                 catch
@@ -201,7 +202,6 @@ namespace GodEye
 
                 }
             }
-
         }
 
         private void staffMonitoringOpenLabel_Click(object sender, EventArgs e)
@@ -332,6 +332,7 @@ namespace GodEye
                 MessageBox.Show(ex.Message);
                 UIConfig(false);
             }
+
             InitChart();
         }
 
@@ -467,14 +468,33 @@ namespace GodEye
                     lock (padList.SyncRoot)
                     {
                         padList.Add(rowData);
-                    } 
+                    }
+
+                    //saveAllData.SaveAll(saveAllData.MyConnect,rowData);
 
                     //邮件分析
                     if (rowsLinebuffer[1] == "SMTP" || rowsLinebuffer[1] == "POP3")
                     {
                         //一条记录包含在多个包里，需要多次分析才得到一条数据
                         //pe = new ProcessingEmail();
-                        countEmail += ea.Analysis(rowData);
+                        //int kCheck = ea.Analysis(rowData);
+                        //countEmail += kCheck;
+                        //if(kCheck!=0)
+                        //{
+                        //    saveAllData.SaveAll(saveAllData.MyConnect, ea);
+                        //}
+                        pe = new ProcessingEmail();
+                        int kCheck = pe.Analysis(rowData);
+                        if(kCheck!=0)
+                        {
+                            countEmail += kCheck;
+                            lock (peList.SyncRoot)
+                            {
+                                peList.Add(pe);
+                                saveAllData.SaveAll(saveAllData.MyConnect, pe);
+                            }
+                        }
+
                     }
 
                     //员工行为
@@ -487,7 +507,9 @@ namespace GodEye
                         {
                             ht.Remove(key);
                             countBehave++;
+                            saveAllData.SaveAll(saveAllData.MyConnect, pb);
                         }
+                        
                     }
 
                     if (rowsLinebuffer[1] == "OICQ")
@@ -499,9 +521,12 @@ namespace GodEye
                             lock (pqllList.SyncRoot)
                             {
                                 pqllList.Add(pqll);
+                                saveAllData.SaveAll(saveAllData.MyConnect, pqll);
                             }
                         }
+
                     }
+                //}
 
                     //pb = new ProcessingBehave();
                     //pb.Time = rowData.Time;
