@@ -221,7 +221,7 @@ namespace GodEye
                         if (NowNextPart.Equals(FurtherNextPart))
                         {
                             Debug.WriteLine("匹配成功");
-                           Time = data.Time;
+                            Time = data.Time;
                             SenderIP = data.SourceAddress;
                             foreach (Match mm in mc1)
                             {
@@ -231,6 +231,8 @@ namespace GodEye
                                 string result = re.Replace(mm.ToString(), "");
                                 re = new Regex("=0A");
                                 result = re.Replace(result, "");
+                                re = new Regex("\'");
+                                result = re.Replace(result,"\\\'");
                                 Debug.WriteLine(result);
                                 Caption = result;
                             }

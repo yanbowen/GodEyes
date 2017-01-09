@@ -183,7 +183,7 @@ namespace GodEye
             time = pe.Time;
             subject = pe.Subject;
 
-            return "insert into email_info values('"+sender+"','"+receiver+"','"+senderIP+"','"+caption+"','"+time+"')";
+            return "insert into email_info(sender,receiver,senderIP,caption,time) values('"+sender+"','"+receiver+"','"+senderIP+"','"+caption+"','"+time+"')";
         }
 
         private string SetSQLString(ProcessingQQLoginLogout qq)
@@ -219,7 +219,7 @@ namespace GodEye
             reason = pb.Reason;
             detailReason = pb.DetailReason;
             time = pb.Time;
-            return "insert into behave_info values('"+senderIP+"','"+receiverIP+"','"+reason+"','"+detailReason+"','"+time+"')";
+            return "insert into behave_info(sender,receiver,reason,detailReason,time) values('"+senderIP+"','"+receiverIP+"','"+reason+"','"+detailReason+"','"+time+"')";
         }
 
         public static string get_uft8(string unicodeString)

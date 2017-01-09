@@ -483,7 +483,7 @@ namespace GodEye
                         //{
                         //    saveAllData.SaveAll(saveAllData.MyConnect, ea);
                         //}
-                        pe = new ProcessingEmail();
+                       
                         int kCheck = pe.Analysis(rowData);
                         if(kCheck!=0)
                         {
@@ -493,6 +493,7 @@ namespace GodEye
                                 peList.Add(pe);
                                 saveAllData.SaveAll(saveAllData.MyConnect, pe);
                             }
+                            pe = new ProcessingEmail();
                         }
 
                     }
