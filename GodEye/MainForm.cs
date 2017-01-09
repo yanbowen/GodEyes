@@ -79,6 +79,8 @@ namespace GodEye
 
         ProcessingAllDataList<ProcessingAllData> padList = ProcessingAllDataList<ProcessingAllData>.GetInstance();
 
+        System.Windows.Forms.Timer chartTimer = new System.Windows.Forms.Timer();
+
         private int countQQ=0;
         private int countEmail=0;
         private int countBehave=0;
@@ -90,7 +92,7 @@ namespace GodEye
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;//设置窗体居屏幕中央
             this.Opacity = 0.92;
-            InitChart();
+            
             Init();
             timer2.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
             timer2.Interval = 120000;
@@ -128,7 +130,7 @@ namespace GodEye
             }
 
         }
-        System.Windows.Forms.Timer chartTimer = new System.Windows.Forms.Timer();
+        
 
         /// <summary>
         /// 
@@ -142,8 +144,10 @@ namespace GodEye
 
             Series series = chartflow.Series[0];
             series.ChartType = SeriesChartType.Spline;
-            Series series1 = chartflow.Series[1];
-            series1.ChartType = SeriesChartType.Spline;
+            series.IsVisibleInLegend = false;
+            //Series series1 = chartflow.Series[1];
+            //series1.ChartType = SeriesChartType.Spline;
+            //series1.IsVisibleInLegend = false;
 
             chartflow.ChartAreas[0].AxisX.LabelStyle.Format = "HH:mm:ss";
             chartflow.ChartAreas[0].AxisX.ScaleView.Size = 5;
@@ -173,19 +177,31 @@ namespace GodEye
         /// <param name="e"></param>
         private void chartTimer_Tick(object sender, EventArgs e)
         {
-            try
-            {
-                Random ra = new Random();
-                Series series = chartflow.Series[0];
-                series.Points.AddXY(DateTime.Now, ra.Next(1, 10));
-                chartflow.ChartAreas[0].AxisX.ScaleView.Position = series.Points.Count - 5;
-            }
-            catch
+            int length = 0;
+            if (packetList != null)
             {
 
+                foreach (RawCapture rawCapture in packetList)
+                {
+                    length += rawCapture.Data.Length;
+                }
+
+
+                try
+                {
+
+                    //Random ra = new Random();
+                    Series series = chartflow.Series[0];
+                    //series.Points.AddXY(DateTime.Now, ra.Next(1, 10));
+                    series.Points.AddXY(DateTime.Now, length / 1024 );
+                    chartflow.ChartAreas[0].AxisX.ScaleView.Position = series.Points.Count - 5;
+                }
+                catch
+                {
+
+                }
             }
-               
-            
+
         }
 
         private void staffMonitoringOpenLabel_Click(object sender, EventArgs e)
@@ -316,6 +332,7 @@ namespace GodEye
                 MessageBox.Show(ex.Message);
                 UIConfig(false);
             }
+            InitChart();
         }
 
         /// <summary>
@@ -342,6 +359,8 @@ namespace GodEye
                 MessageBox.Show(ex.Message);
             }
             UIConfig(false);
+
+            chartTimer.Stop();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
