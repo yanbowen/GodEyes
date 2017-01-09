@@ -160,7 +160,7 @@ namespace GodEye
             this.emailNoticeLabel.Name = "emailNoticeLabel";
             this.emailNoticeLabel.Size = new System.Drawing.Size(128, 18);
             this.emailNoticeLabel.TabIndex = 5;
-            this.emailNoticeLabel.Text = "今日新增记录3条";
+            this.emailNoticeLabel.Text = "今日新增记录0条";
             // 
             // qqLoginPanel
             // 
@@ -171,7 +171,8 @@ namespace GodEye
             this.qqLoginPanel.Name = "qqLoginPanel";
             this.qqLoginPanel.Size = new System.Drawing.Size(364, 100);
             this.qqLoginPanel.TabIndex = 7;
-            this.qqLoginPanel.Click += new System.EventHandler(this.qqLoginOpenLabel_Click);
+            this.qqLoginPanel.Click += new System.EventHandler(this.qqLoginPanel_Click);
+            this.qqLoginPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.qqLoginPanel_Paint);
             // 
             // qqLoginOpenLabel
             // 
@@ -182,7 +183,6 @@ namespace GodEye
             this.qqLoginOpenLabel.Size = new System.Drawing.Size(163, 30);
             this.qqLoginOpenLabel.TabIndex = 1;
             this.qqLoginOpenLabel.Text = "QQ登录监测";
-            this.qqLoginOpenLabel.Click += new System.EventHandler(this.qqLoginOpenLabel_Click);
             // 
             // qqNoticeLabel
             // 
@@ -192,7 +192,7 @@ namespace GodEye
             this.qqNoticeLabel.Name = "qqNoticeLabel";
             this.qqNoticeLabel.Size = new System.Drawing.Size(128, 18);
             this.qqNoticeLabel.TabIndex = 4;
-            this.qqNoticeLabel.Text = "今日新增记录3条";
+            this.qqNoticeLabel.Text = "今日新增记录0条";
             // 
             // staffMonitoringPanel
             // 
@@ -224,7 +224,7 @@ namespace GodEye
             this.staffNoticeLabel.Name = "staffNoticeLabel";
             this.staffNoticeLabel.Size = new System.Drawing.Size(128, 18);
             this.staffNoticeLabel.TabIndex = 3;
-            this.staffNoticeLabel.Text = "今日新增记录3条";
+            this.staffNoticeLabel.Text = "今日新增记录0条";
             // 
             // groupBox2
             // 

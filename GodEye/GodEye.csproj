@@ -93,6 +93,7 @@
     <Compile Include="EmailForm.Designer.cs">
       <DependentUpon>EmailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmailAnalysis.cs" />
     <Compile Include="Format.cs" />
     <Compile Include="HexConvert.cs" />
     <Compile Include="LinkMySQL.cs" />
@@ -103,6 +104,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProcessingAllData.cs" />
+    <Compile Include="ProcessingAllDataList.cs" />
     <Compile Include="ProcessingBehave.cs" />
     <Compile Include="ProcessingBehaveList.cs" />
     <Compile Include="ProcessingEmail.cs" />

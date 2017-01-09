@@ -10,7 +10,7 @@ namespace GodEye
     {
         private string qqID;
         private string qqIP;
-        private bool qqLogin;
+        private int qqLogin=0;
         private string time;
 
         public string QqID
@@ -39,7 +39,7 @@ namespace GodEye
             }
         }
 
-        public bool QqLogin
+        public int QqLogin
         {
             get
             {
@@ -65,9 +65,23 @@ namespace GodEye
             }
         }
 
-        public void Analysis(ProcessingAllData data)
+        public int Analysis(ProcessingAllData data)
         {
-
+            this.QqID = (data.BinaryData[49] * 256 * 256 * 256 + data.BinaryData[50] * 256 * 256 +
+                data.BinaryData[51] * 256 + data.BinaryData[52]).ToString();
+            this.Time = data.Time;
+            this.QqIP = data.SourceAddress;
+            if (data.BinaryData[45] == (byte)(00) && data.BinaryData[46] == (byte)(01))
+            {
+                this.QqLogin = 1;
+                return 1;
+            }
+            else if (data.BinaryData[45] == (byte)(00) && data.BinaryData[46] == (byte)(62))
+            {
+                this.QqLogin = 2;
+                return 1;
+            }
+            return 0;
         }
     }
 }

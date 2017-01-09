@@ -12,21 +12,21 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace GodEye
 {
 
     public partial class MainForm : Form
     {
-        private Hashtable ht;
-        private System.Timers.Timer timer2 = new System.Timers.Timer();
+
         /// <summary>
         /// 成员变量
         /// dalong
         /// 2016-11-9 22:22:41
         /// </summary>
         #region
+        private Hashtable ht;
+        private System.Timers.Timer timer2 = new System.Timers.Timer();
         private StaffMonitoringForm staffForm;
         private EmailForm emailForm;
         private QQForm qqForm;
@@ -56,7 +56,8 @@ namespace GodEye
         /// <summary>
         /// 邮件引用
         /// </summary>
-        ProcessingEmail pe;
+        ProcessingEmail pe = new ProcessingEmail();
+        EmailAnalysis ea = new EmailAnalysis();
         /// <summary>
         /// QQ上下线引用
         /// </summary>
@@ -75,6 +76,12 @@ namespace GodEye
         ProcessingQQLoginLogoutList<ProcessingQQLoginLogout> pqllList = ProcessingQQLoginLogoutList<ProcessingQQLoginLogout>.GetInstance();
 
         ProcessingAllData rowData;
+
+        ProcessingAllDataList<ProcessingAllData> padList = ProcessingAllDataList<ProcessingAllData>.GetInstance();
+
+        private int countQQ=0;
+        private int countEmail=0;
+        private int countBehave=0;
 
         #endregion
 
@@ -121,8 +128,6 @@ namespace GodEye
             }
 
         }
-
-
         System.Windows.Forms.Timer chartTimer = new System.Windows.Forms.Timer();
 
         /// <summary>
@@ -146,7 +151,6 @@ namespace GodEye
             chartflow.ChartAreas[0].AxisX.ScrollBar.Enabled = true;
 
             chartTimer.Start();
-
         }
 
         /// <summary>
@@ -169,10 +173,19 @@ namespace GodEye
         /// <param name="e"></param>
         private void chartTimer_Tick(object sender, EventArgs e)
         {
-            Random ra = new Random();
-            Series series = chartflow.Series[0];
-            series.Points.AddXY(DateTime.Now, ra.Next(1, 10));
-            chartflow.ChartAreas[0].AxisX.ScaleView.Position = series.Points.Count - 5;
+            try
+            {
+                Random ra = new Random();
+                Series series = chartflow.Series[0];
+                series.Points.AddXY(DateTime.Now, ra.Next(1, 10));
+                chartflow.ChartAreas[0].AxisX.ScaleView.Position = series.Points.Count - 5;
+            }
+            catch
+            {
+
+            }
+               
+            
         }
 
         private void staffMonitoringOpenLabel_Click(object sender, EventArgs e)
@@ -418,9 +431,8 @@ namespace GodEye
             {
                 string[] rowsLinebuffer = new string[7];
                 rowsLinebuffer = rowsBulider.Row(packet, ++packetIndex);
-                if (rowsLinebuffer[1] == "TCP" || rowsLinebuffer[1] == "SMTP"|| rowsLinebuffer[1] == "POP3"|| rowsLinebuffer[1] == "HTTP"|| rowsLinebuffer[1] == "QICQ")
+                if (rowsLinebuffer[1] == "TCP" || rowsLinebuffer[1] == "SMTP"|| rowsLinebuffer[1] == "POP3"|| rowsLinebuffer[1] == "HTTP"|| rowsLinebuffer[1] == "OICQ")
                 {
-
                     rowData = new ProcessingAllData();
                     rowData.Id = rowsLinebuffer[0];
                     rowData.Protocol = rowsLinebuffer[1];
@@ -432,28 +444,69 @@ namespace GodEye
                     rowData.BinaryData = packet.Data; //?
                     rowData.Data = HexConvert.ConvertToAscii(packet.Data);
 
+                    //添加总的数据
+                    lock (padList.SyncRoot)
+                    {
+                        padList.Add(rowData);
+                    } 
+
                     //邮件分析
                     if (rowsLinebuffer[1] == "SMTP" || rowsLinebuffer[1] == "POP3")
                     {
-                        pe = new ProcessingEmail();
-                        pe.Analysis(rowData);
-                        peList.Add(pe);
+                        //一条记录包含在多个包里，需要多次分析才得到一条数据
+                        //pe = new ProcessingEmail();
+                        countEmail += ea.Analysis(rowData);
                     }
+
                     //员工行为
                     if (rowsLinebuffer[1] == "TCP" || rowsLinebuffer[1] == "HTTP")
                     {
                         pb = new ProcessingBehave();
-                        String key = pb.Analysis(rowData,ht, pbList);
+                        String key = pb.Analysis(rowData, ht, pbList);
 
-                        if(!key.Equals("key")) ht.Remove(key);
+                        if (!key.Equals("key"))
+                        {
+                            ht.Remove(key);
+                            countBehave++;
+                        }
                     }
 
+                    if (rowsLinebuffer[1] == "OICQ")
+                    {
+                        pqll = new ProcessingQQLoginLogout();
+                        countQQ += pqll.Analysis(rowData);
+                        if (pqll.QqLogin == 1 || pqll.QqLogin == 2)
+                        {
+                            lock (pqllList.SyncRoot)
+                            {
+                                pqllList.Add(pqll);
+                            }
+                        }
+                    }
+
+                    //pb = new ProcessingBehave();
+                    //pb.Time = rowData.Time;
+                    //pb.UserIPA =rowData.SourceAddress;
+                    //pb.UserIPB = rowData.DestinationAddress;
+                    //pb.Protocol = rowData.Protocol;
+                    ////pb.Reason = rowData.HardwareType;///修改
+                    //pb.Reason = HexConvert.ConvertToAscii(packet.Data); 
+
+                    //pb.Caption = HexConvert.ConvertToHexText(packet.Data);
+                    //lock (pbList.SyncRoot)
+                    //{
+                    //    pbList.Add(pb);
+                    //}
+                    //behaveList.Add(pb);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            this.staffNoticeLabel.Text = "今日新增记录" + countBehave + "条";
+            this.qqNoticeLabel.Text = "今日新增记录" + countQQ + "条";
+            this.emailNoticeLabel.Text = "今日新增记录" + countEmail + "条";
         }
 
         /// <summary>
@@ -507,6 +560,10 @@ namespace GodEye
         {
             if (emailForm == null)
             {
+                if (!isStartAnalyzer)
+                {
+                    MessageBox.Show("请在主界面选择合适的网卡，然后启动监测！ ：）");
+                }
                 emailForm = new EmailForm();
                 emailForm.Show();
             }
@@ -523,10 +580,14 @@ namespace GodEye
                     emailForm.TopMost = true;
                 }
             }
+        }
+
+        private void qqLoginPanel_Paint(object sender, PaintEventArgs e)
+        {
 
         }
 
-        private void qqLoginOpenLabel_Click(object sender, EventArgs e)
+        private void qqLoginPanel_Click(object sender, EventArgs e)
         {
             if (qqForm == null)
             {
@@ -547,7 +608,6 @@ namespace GodEye
                 }
             }
         }
-
     }
 
 }

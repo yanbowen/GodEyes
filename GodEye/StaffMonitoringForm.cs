@@ -197,7 +197,7 @@ namespace GodEye
             }
             catch
             {
-
+                MessageBox.Show("退出线程错误");
             }
         }
 
@@ -254,12 +254,13 @@ namespace GodEye
         /// <param name="index">选定的数据行索引值</param>
         private void selectDataGridRow(int index)
         {
-            if (index < 0 || index > monitoringResultslistView.Rows.Count)
+            if (index < 0 || index >= monitoringResultslistView.Rows.Count|| monitoringResultslistView.Rows.Count==0)
                 return;
             //获取数据包位置
             //int i = Convert.ToInt32(monitoringResultslistView.Rows[index].Cells[0].Value.ToString());
             //if (i > pbListBuffer.Count)
             //    return;
+            //richTextBox1.Text = ((ProcessingBehave)pbListBuffer[index]).Caption;
         }
     }
 }

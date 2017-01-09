@@ -45,6 +45,7 @@
             this.emailTimeColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailSendColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailReceiveColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailSubjectColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.designatedestinationIPLabel = new System.Windows.Forms.Label();
             this.designatesourceIPLabel = new System.Windows.Forms.Label();
             this.sourceTextBox = new System.Windows.Forms.TextBox();
@@ -59,11 +60,14 @@
             this.currentMonitoringGroupBox = new System.Windows.Forms.GroupBox();
             this.emailContent = new System.Windows.Forms.GroupBox();
             this.emailBrowser = new System.Windows.Forms.WebBrowser();
+            this.emailTitleInfo = new System.Windows.Forms.GroupBox();
+            this.emailHeadInfo = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.emailDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.recordGroupBox.SuspendLayout();
             this.currentMonitoringGroupBox.SuspendLayout();
             this.emailContent.SuspendLayout();
+            this.emailTitleInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // currentDownButton
@@ -85,6 +89,7 @@
             this.startCurrentMonitoring.TabIndex = 4;
             this.startCurrentMonitoring.Text = "开始监测";
             this.startCurrentMonitoring.UseVisualStyleBackColor = true;
+            this.startCurrentMonitoring.Click += new System.EventHandler(this.startCurrentMonitoring_Click);
             // 
             // stopCurrentMonitoring
             // 
@@ -95,6 +100,7 @@
             this.stopCurrentMonitoring.TabIndex = 5;
             this.stopCurrentMonitoring.Text = "结束监测";
             this.stopCurrentMonitoring.UseVisualStyleBackColor = true;
+            this.stopCurrentMonitoring.Click += new System.EventHandler(this.stopCurrentMonitoring_Click);
             // 
             // label1
             // 
@@ -147,6 +153,7 @@
             // emailDataGridView
             // 
             this.emailDataGridView.AllowUserToAddRows = false;
+            this.emailDataGridView.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.emailDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.emailDataGridView.CausesValidation = false;
@@ -162,7 +169,8 @@
             this.emailDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.emailTimeColum,
             this.emailSendColum,
-            this.emailReceiveColum});
+            this.emailReceiveColum,
+            this.emailSubjectColum});
             this.emailDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.emailDataGridView.Location = new System.Drawing.Point(3, 30);
             this.emailDataGridView.Name = "emailDataGridView";
@@ -170,8 +178,11 @@
             this.emailDataGridView.RowHeadersVisible = false;
             this.emailDataGridView.RowTemplate.Height = 23;
             this.emailDataGridView.ShowEditingIcon = false;
-            this.emailDataGridView.Size = new System.Drawing.Size(441, 651);
+            this.emailDataGridView.Size = new System.Drawing.Size(521, 651);
             this.emailDataGridView.TabIndex = 0;
+            this.emailDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.emailDataGridView_CellContentClick);
+            this.emailDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.emailDataGridView_CellMouseDown);
+            this.emailDataGridView.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.emailDataGridView_ColumnWidthChanged);
             // 
             // emailTimeColum
             // 
@@ -196,6 +207,12 @@
             this.emailReceiveColum.HeaderText = "收件方";
             this.emailReceiveColum.Name = "emailReceiveColum";
             this.emailReceiveColum.ReadOnly = true;
+            // 
+            // emailSubjectColum
+            // 
+            this.emailSubjectColum.HeaderText = "主题";
+            this.emailSubjectColum.Name = "emailSubjectColum";
+            this.emailSubjectColum.ReadOnly = true;
             // 
             // designatedestinationIPLabel
             // 
@@ -251,7 +268,7 @@
             this.groupBox1.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(315, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(447, 684);
+            this.groupBox1.Size = new System.Drawing.Size(527, 684);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "邮件列表";
@@ -336,27 +353,54 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.emailContent.Controls.Add(this.emailBrowser);
             this.emailContent.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.emailContent.Location = new System.Drawing.Point(765, 12);
+            this.emailContent.Location = new System.Drawing.Point(848, 218);
             this.emailContent.Name = "emailContent";
-            this.emailContent.Size = new System.Drawing.Size(410, 687);
+            this.emailContent.Size = new System.Drawing.Size(327, 481);
             this.emailContent.TabIndex = 15;
             this.emailContent.TabStop = false;
             this.emailContent.Text = "邮件内容";
             // 
             // emailBrowser
             // 
-            this.emailBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.emailBrowser.Location = new System.Drawing.Point(3, 30);
             this.emailBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.emailBrowser.Name = "emailBrowser";
-            this.emailBrowser.Size = new System.Drawing.Size(404, 654);
+            this.emailBrowser.Size = new System.Drawing.Size(321, 448);
             this.emailBrowser.TabIndex = 0;
+            // 
+            // emailTitleInfo
+            // 
+            this.emailTitleInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.emailTitleInfo.Controls.Add(this.emailHeadInfo);
+            this.emailTitleInfo.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.emailTitleInfo.Location = new System.Drawing.Point(851, 12);
+            this.emailTitleInfo.Name = "emailTitleInfo";
+            this.emailTitleInfo.Size = new System.Drawing.Size(324, 200);
+            this.emailTitleInfo.TabIndex = 19;
+            this.emailTitleInfo.TabStop = false;
+            this.emailTitleInfo.Text = "邮件头";
+            // 
+            // emailHeadInfo
+            // 
+            this.emailHeadInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.emailHeadInfo.Location = new System.Drawing.Point(3, 30);
+            this.emailHeadInfo.Name = "emailHeadInfo";
+            this.emailHeadInfo.ReadOnly = true;
+            this.emailHeadInfo.Size = new System.Drawing.Size(318, 167);
+            this.emailHeadInfo.TabIndex = 0;
+            this.emailHeadInfo.Text = "";
             // 
             // EmailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 711);
+            this.Controls.Add(this.emailTitleInfo);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.recordGroupBox);
             this.Controls.Add(this.currentMonitoringGroupBox);
@@ -370,6 +414,7 @@
             this.recordGroupBox.PerformLayout();
             this.currentMonitoringGroupBox.ResumeLayout(false);
             this.emailContent.ResumeLayout(false);
+            this.emailTitleInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -398,9 +443,12 @@
         private System.Windows.Forms.GroupBox recordGroupBox;
         private System.Windows.Forms.GroupBox currentMonitoringGroupBox;
         private System.Windows.Forms.GroupBox emailContent;
+        private System.Windows.Forms.WebBrowser emailBrowser;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailTimeColum;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailSendColum;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailReceiveColum;
-        private System.Windows.Forms.WebBrowser emailBrowser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailSubjectColum;
+        private System.Windows.Forms.GroupBox emailTitleInfo;
+        private System.Windows.Forms.RichTextBox emailHeadInfo;
     }
 }

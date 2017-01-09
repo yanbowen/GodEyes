@@ -27,8 +27,8 @@ namespace GodEye
             rows[3] = "--";
             rows[4] = "--";
             rows[5] = "--";
-            rows[6] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff");
-
+            //rows[6] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff");
+            rows[6] = DateTime.Now.ToString("HH:mm:ss:fff yyyy-MM-dd");
             Packet packet = Packet.ParsePacket(rawPacket.LinkLayerType, rawPacket.Data);
 
             EthernetPacket ep = EthernetPacket.GetEncapsulated(packet);
@@ -87,7 +87,7 @@ namespace GodEye
                     {
                         if (rawPacket.Data[42] == ((byte)02))
                         {
-                            rows[1] = "QICQ";
+                            rows[1] = "OICQ";
                         }
                         else
                         {

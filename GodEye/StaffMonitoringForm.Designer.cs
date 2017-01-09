@@ -122,13 +122,14 @@ namespace GodEye
             this.monitoringResultsGroupBox.Font = new System.Drawing.Font("华文楷体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.monitoringResultsGroupBox.Location = new System.Drawing.Point(319, 32);
             this.monitoringResultsGroupBox.Name = "monitoringResultsGroupBox";
-            this.monitoringResultsGroupBox.Size = new System.Drawing.Size(853, 646);
+            this.monitoringResultsGroupBox.Size = new System.Drawing.Size(863, 667);
             this.monitoringResultsGroupBox.TabIndex = 6;
             this.monitoringResultsGroupBox.TabStop = false;
             this.monitoringResultsGroupBox.Text = "检测结果";
             // 
             // monitoringResultslistView
             // 
+            this.monitoringResultslistView.AllowUserToAddRows = false;
             this.monitoringResultslistView.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -163,7 +164,7 @@ namespace GodEye
             this.monitoringResultslistView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.monitoringResultslistView.RowTemplate.Height = 23;
             this.monitoringResultslistView.ShowEditingIcon = false;
-            this.monitoringResultslistView.Size = new System.Drawing.Size(847, 612);
+            this.monitoringResultslistView.Size = new System.Drawing.Size(857, 633);
             this.monitoringResultslistView.TabIndex = 0;
             this.monitoringResultslistView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.monitoringResultslistView_CellMouseDown);
             this.monitoringResultslistView.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.monitoringResultslistView_ColumnWidthChanged);
@@ -334,7 +335,7 @@ namespace GodEye
             this.currentMonitoringGroupBox.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.currentMonitoringGroupBox.Location = new System.Drawing.Point(12, 499);
             this.currentMonitoringGroupBox.Name = "currentMonitoringGroupBox";
-            this.currentMonitoringGroupBox.Size = new System.Drawing.Size(300, 179);
+            this.currentMonitoringGroupBox.Size = new System.Drawing.Size(300, 200);
             this.currentMonitoringGroupBox.TabIndex = 1;
             this.currentMonitoringGroupBox.TabStop = false;
             this.currentMonitoringGroupBox.Text = "实时监测";
