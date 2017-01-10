@@ -35,7 +35,7 @@ namespace GodEye
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;//设置窗体居屏幕中央
-            this.Opacity = 0.92;
+            //this.Opacity = 0.92;
             
         }
 
@@ -68,6 +68,7 @@ namespace GodEye
 
         private void startCurrentMonitoring_Click(object sender, EventArgs e)
         {
+            emailDataGridView.Rows.Clear();
             UIConfig(startCurrentMonitoringString);
             LoadRealData();
         }
@@ -147,8 +148,8 @@ namespace GodEye
             {
                 startDateTimePicker.Enabled = false;
                 stopDateTimePicker.Enabled = false;
-                sourceTextBox.Enabled = false;
-                destinationTextBox.Enabled = false;
+                senderEmailTextBox.Enabled = false;
+                reciverEmailTextBox.Enabled = false;
                 keywordTextBox.Enabled = false;
                 startCurrentMonitoring.Enabled = false;
                 recordButton.Enabled = false;
@@ -162,8 +163,8 @@ namespace GodEye
             {
                 startDateTimePicker.Enabled = true;
                 stopDateTimePicker.Enabled = true;
-                sourceTextBox.Enabled = true;
-                destinationTextBox.Enabled = true;
+                senderEmailTextBox.Enabled = true;
+                reciverEmailTextBox.Enabled = true;
                 keywordTextBox.Enabled = true;
                 stopCurrentMonitoring.Enabled = false;
                 recordButton.Enabled = true;
@@ -236,6 +237,33 @@ namespace GodEye
 
         }
 
-        
+        private void recordButton_Click(object sender, EventArgs e)
+        {
+            UIConfig(recordButtonString);
+
+            string startDetailTime = startDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            string startDayTime = startDateTimePicker.Value.ToString("yyyy-MM-dd");
+
+            
+            string stopDayTime = stopDateTimePicker.Value.ToString("yyyy-MM-dd");
+            string stopDetailTime = stopDayTime + " 23:59:59";//stopDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            string senderEmail = senderEmailTextBox.Text;
+            string reciverEmail = reciverEmailTextBox.Text;
+            string keyword = keywordTextBox.Text;
+
+            SaveAllToSQL mysql = new SaveAllToSQL();
+            List<ProcessingEmail> pelist = mysql.SearchPE(mysql.MyConnect, startDayTime, stopDetailTime, senderEmail, reciverEmail, keyword);
+            
+            emailDataGridView.Rows.Clear();
+            peListBuffer.Clear();
+            foreach (ProcessingEmail pe in pelist)
+            {
+                ShowDataRows(pe);
+                lock(peListBuffer.SyncRoot)
+                {
+                    peListBuffer.Add(pe);
+                }
+            }
+        }
     }
 }

@@ -48,9 +48,9 @@
             this.emailSubjectColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.designatedestinationIPLabel = new System.Windows.Forms.Label();
             this.designatesourceIPLabel = new System.Windows.Forms.Label();
-            this.sourceTextBox = new System.Windows.Forms.TextBox();
+            this.senderEmailTextBox = new System.Windows.Forms.TextBox();
             this.currentUpButton = new System.Windows.Forms.Button();
-            this.destinationTextBox = new System.Windows.Forms.TextBox();
+            this.reciverEmailTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.stopDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.startTimeLabel = new System.Windows.Forms.Label();
@@ -149,6 +149,7 @@
             this.recordButton.TabIndex = 15;
             this.recordButton.Text = "查询记录";
             this.recordButton.UseVisualStyleBackColor = true;
+            this.recordButton.Click += new System.EventHandler(this.recordButton_Click);
             // 
             // emailDataGridView
             // 
@@ -234,13 +235,13 @@
             this.designatesourceIPLabel.TabIndex = 12;
             this.designatesourceIPLabel.Text = "指定发件方地址";
             // 
-            // sourceTextBox
+            // senderEmailTextBox
             // 
-            this.sourceTextBox.Location = new System.Drawing.Point(41, 175);
-            this.sourceTextBox.Multiline = true;
-            this.sourceTextBox.Name = "sourceTextBox";
-            this.sourceTextBox.Size = new System.Drawing.Size(200, 24);
-            this.sourceTextBox.TabIndex = 11;
+            this.senderEmailTextBox.Location = new System.Drawing.Point(41, 175);
+            this.senderEmailTextBox.Multiline = true;
+            this.senderEmailTextBox.Name = "senderEmailTextBox";
+            this.senderEmailTextBox.Size = new System.Drawing.Size(200, 24);
+            this.senderEmailTextBox.TabIndex = 11;
             // 
             // currentUpButton
             // 
@@ -252,13 +253,13 @@
             this.currentUpButton.Text = "上页";
             this.currentUpButton.UseVisualStyleBackColor = true;
             // 
-            // destinationTextBox
+            // reciverEmailTextBox
             // 
-            this.destinationTextBox.Location = new System.Drawing.Point(41, 235);
-            this.destinationTextBox.Multiline = true;
-            this.destinationTextBox.Name = "destinationTextBox";
-            this.destinationTextBox.Size = new System.Drawing.Size(200, 24);
-            this.destinationTextBox.TabIndex = 13;
+            this.reciverEmailTextBox.Location = new System.Drawing.Point(41, 235);
+            this.reciverEmailTextBox.Multiline = true;
+            this.reciverEmailTextBox.Name = "reciverEmailTextBox";
+            this.reciverEmailTextBox.Size = new System.Drawing.Size(200, 24);
+            this.reciverEmailTextBox.TabIndex = 13;
             // 
             // groupBox1
             // 
@@ -317,9 +318,9 @@
             this.recordGroupBox.Controls.Add(this.recordUpButton);
             this.recordGroupBox.Controls.Add(this.recordButton);
             this.recordGroupBox.Controls.Add(this.designatedestinationIPLabel);
-            this.recordGroupBox.Controls.Add(this.destinationTextBox);
+            this.recordGroupBox.Controls.Add(this.reciverEmailTextBox);
             this.recordGroupBox.Controls.Add(this.designatesourceIPLabel);
-            this.recordGroupBox.Controls.Add(this.sourceTextBox);
+            this.recordGroupBox.Controls.Add(this.senderEmailTextBox);
             this.recordGroupBox.Controls.Add(this.stopDateTimePicker);
             this.recordGroupBox.Controls.Add(this.startTimeLabel);
             this.recordGroupBox.Controls.Add(this.stopTimeLabel);
@@ -432,9 +433,9 @@
         private System.Windows.Forms.DataGridView emailDataGridView;
         private System.Windows.Forms.Label designatedestinationIPLabel;
         private System.Windows.Forms.Label designatesourceIPLabel;
-        private System.Windows.Forms.TextBox sourceTextBox;
+        private System.Windows.Forms.TextBox senderEmailTextBox;
         private System.Windows.Forms.Button currentUpButton;
-        private System.Windows.Forms.TextBox destinationTextBox;
+        private System.Windows.Forms.TextBox reciverEmailTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker stopDateTimePicker;
         private System.Windows.Forms.Label startTimeLabel;

@@ -47,7 +47,7 @@ namespace GodEye
         delegate void DataGridRowsShowHandler(RawCapture packet);
         DataBuilder rowsBulider = new DataBuilder();//规范化数据
         uint packetIndex = 0;//包计数索引
-        
+        private static readonly object syncRoot = new object();
         /// <summary>
         /// 用户行为引用
         /// </summary>
@@ -96,7 +96,7 @@ namespace GodEye
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;//设置窗体居屏幕中央
-            this.Opacity = 0.92;
+            //this.Opacity = 0.92;
             Init();
             timer2.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
             timer2.Interval = 120000;
@@ -104,13 +104,44 @@ namespace GodEye
             //lmysql.test();
         }
 
+        //private void Init()
+        //{
+        //    ht = new Hashtable();
+        //    ht.Add("taobao", "访问淘宝网站");
+        //    ht.Add("jd.com", "访问京东商城");
+        //    ht.Add("blizzard", "访问游戏：魔兽世界");
+        //    ht.Add("douyu", "访问斗鱼直播平台");
+
+        //}
+
+        //void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        //{
+        //    if (!ht.ContainsKey("taobao"))
+        //    {
+        //        ht.Add("taobao", "访问淘宝网站");
+        //    }
+        //    else if (!ht.ContainsKey("jd.com"))
+        //    {
+        //        ht.Add("jd.com", "访问京东商城");
+        //    }
+        //    else if (!ht.ContainsKey("blizzard"))
+        //    {
+        //        ht.Add("blizzard", "访问游戏：魔兽世界");
+        //    }
+        //    else if (!ht.ContainsKey("douyu"))
+        //    {
+        //        ht.Add("douyu", "访问斗鱼直播平台");
+        //    }
+
+        //}
+
         private void Init()
         {
             ht = new Hashtable();
-            ht.Add("taobao", "访问淘宝网站");
-            ht.Add("jd.com", "访问京东商城");
-            ht.Add("blizzard", "访问游戏：魔兽世界");
-            ht.Add("douyu", "访问斗鱼直播平台");
+            ht.Add("taobao", "购物,访问淘宝网站");
+            ht.Add("jd.com", "购物,访问京东商城");
+            ht.Add("blizzard", "娱乐,访问游戏：魔兽世界");
+            ht.Add("douyu", "娱乐,访问斗鱼直播平台");
 
         }
 
@@ -118,22 +149,23 @@ namespace GodEye
         {
             if (!ht.ContainsKey("taobao"))
             {
-                ht.Add("taobao", "访问淘宝网站");
+                ht.Add("taobao", "购物,访问淘宝网站");
             }
             else if (!ht.ContainsKey("jd.com"))
             {
-                ht.Add("jd.com", "访问京东商城");
+                ht.Add("jd.com", "购物,访问京东商城");
             }
             else if (!ht.ContainsKey("blizzard"))
             {
-                ht.Add("blizzard", "访问游戏：魔兽世界");
+                ht.Add("blizzard", "娱乐,访问游戏：魔兽世界");
             }
             else if (!ht.ContainsKey("douyu"))
             {
-                ht.Add("douyu", "访问斗鱼直播平台");
+                ht.Add("douyu", "娱乐,访问斗鱼直播平台");
             }
 
         }
+
         System.Windows.Forms.Timer chartTimer = new System.Windows.Forms.Timer();
 
         /// <summary>
@@ -181,16 +213,16 @@ namespace GodEye
             int length = 0;
             if (packetList != null)
             {
-
-                foreach (RawCapture rawCapture in packetList)
-                {
-                    length += rawCapture.Data.Length;
+                lock(syncRoot)
+                { 
+                    foreach (RawCapture rawCapture in packetList)
+                    {
+                        length += rawCapture.Data.Length;
+                    }
                 }
-
 
                 try
                 {
-
                     //Random ra = new Random();
                     Series series = chartflow.Series[0];
                     //series.Points.AddXY(DateTime.Now, ra.Next(1, 10));
@@ -652,6 +684,16 @@ namespace GodEye
                     qqForm.TopMost = true;
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("\t当前版本 V2.4 更新请访问\nhttps://github.com/dalongm/GodEyeDemo/");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Powered by SWUST IoT.Lab");
         }
     }
 

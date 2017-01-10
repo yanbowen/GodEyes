@@ -41,11 +41,6 @@ namespace GodEye
             this.stopCurrentMonitoring = new System.Windows.Forms.Button();
             this.monitoringResultsGroupBox = new System.Windows.Forms.GroupBox();
             this.monitoringResultslistView = new System.Windows.Forms.DataGridView();
-            this.rowTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rowSourceIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rowDestinationIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rowProtocol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rowReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startTimeLabel = new System.Windows.Forms.Label();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.stopTimeLabel = new System.Windows.Forms.Label();
@@ -61,6 +56,11 @@ namespace GodEye
             this.currentMonitoringGroupBox = new System.Windows.Forms.GroupBox();
             this.currentDownButton = new System.Windows.Forms.Button();
             this.currentUpButton = new System.Windows.Forms.Button();
+            this.rowTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rowSourceIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rowDestinationIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rowReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rowDetailReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monitoringResultsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monitoringResultslistView)).BeginInit();
             this.recordGroupBox.SuspendLayout();
@@ -75,7 +75,7 @@ namespace GodEye
             this.networkGames.Name = "networkGames";
             this.networkGames.Size = new System.Drawing.Size(155, 27);
             this.networkGames.TabIndex = 1;
-            this.networkGames.Text = "网络游戏监测";
+            this.networkGames.Text = "娱乐游戏监测";
             this.networkGames.UseVisualStyleBackColor = true;
             this.networkGames.CheckedChanged += new System.EventHandler(this.networkGames_CheckedChanged);
             // 
@@ -87,7 +87,7 @@ namespace GodEye
             this.entertainmentSite.Name = "entertainmentSite";
             this.entertainmentSite.Size = new System.Drawing.Size(155, 27);
             this.entertainmentSite.TabIndex = 2;
-            this.entertainmentSite.Text = "娱乐网站监测";
+            this.entertainmentSite.Text = "购物网站监测";
             this.entertainmentSite.UseVisualStyleBackColor = true;
             this.entertainmentSite.CheckedChanged += new System.EventHandler(this.entertainmentSite_CheckedChanged);
             // 
@@ -144,8 +144,8 @@ namespace GodEye
             this.rowTime,
             this.rowSourceIP,
             this.rowDestinationIP,
-            this.rowProtocol,
-            this.rowReason});
+            this.rowReason,
+            this.rowDetailReason});
             this.monitoringResultslistView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.monitoringResultslistView.Location = new System.Drawing.Point(3, 31);
             this.monitoringResultslistView.Name = "monitoringResultslistView";
@@ -168,36 +168,6 @@ namespace GodEye
             this.monitoringResultslistView.TabIndex = 0;
             this.monitoringResultslistView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.monitoringResultslistView_CellMouseDown);
             this.monitoringResultslistView.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.monitoringResultslistView_ColumnWidthChanged);
-            // 
-            // rowTime
-            // 
-            this.rowTime.HeaderText = "时间";
-            this.rowTime.Name = "rowTime";
-            this.rowTime.ReadOnly = true;
-            // 
-            // rowSourceIP
-            // 
-            this.rowSourceIP.HeaderText = "源端IP";
-            this.rowSourceIP.Name = "rowSourceIP";
-            this.rowSourceIP.ReadOnly = true;
-            // 
-            // rowDestinationIP
-            // 
-            this.rowDestinationIP.HeaderText = "目标端IP";
-            this.rowDestinationIP.Name = "rowDestinationIP";
-            this.rowDestinationIP.ReadOnly = true;
-            // 
-            // rowProtocol
-            // 
-            this.rowProtocol.HeaderText = "协议";
-            this.rowProtocol.Name = "rowProtocol";
-            this.rowProtocol.ReadOnly = true;
-            // 
-            // rowReason
-            // 
-            this.rowReason.HeaderText = "原因";
-            this.rowReason.Name = "rowReason";
-            this.rowReason.ReadOnly = true;
             // 
             // startTimeLabel
             // 
@@ -360,6 +330,36 @@ namespace GodEye
             this.currentUpButton.Text = "上页";
             this.currentUpButton.UseVisualStyleBackColor = true;
             // 
+            // rowTime
+            // 
+            this.rowTime.HeaderText = "时间";
+            this.rowTime.Name = "rowTime";
+            this.rowTime.ReadOnly = true;
+            // 
+            // rowSourceIP
+            // 
+            this.rowSourceIP.HeaderText = "源端IP";
+            this.rowSourceIP.Name = "rowSourceIP";
+            this.rowSourceIP.ReadOnly = true;
+            // 
+            // rowDestinationIP
+            // 
+            this.rowDestinationIP.HeaderText = "目标端IP";
+            this.rowDestinationIP.Name = "rowDestinationIP";
+            this.rowDestinationIP.ReadOnly = true;
+            // 
+            // rowReason
+            // 
+            this.rowReason.HeaderText = "原因";
+            this.rowReason.Name = "rowReason";
+            this.rowReason.ReadOnly = true;
+            // 
+            // rowDetailReason
+            // 
+            this.rowDetailReason.HeaderText = "详细原因";
+            this.rowDetailReason.Name = "rowDetailReason";
+            this.rowDetailReason.ReadOnly = true;
+            // 
             // StaffMonitoringForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -426,8 +426,8 @@ namespace GodEye
         private DataGridViewTextBoxColumn rowTime;
         private DataGridViewTextBoxColumn rowSourceIP;
         private DataGridViewTextBoxColumn rowDestinationIP;
-        private DataGridViewTextBoxColumn rowProtocol;
         private DataGridViewTextBoxColumn rowReason;
+        private DataGridViewTextBoxColumn rowDetailReason;
     }
 }
 

@@ -113,14 +113,16 @@ namespace GodEye
             String keys = "key";
             foreach (String key in ht.Keys)
             {
-
                 if (data.Data.Contains(key) || data.Data.Contains(key))
                 {
                     this.UserIPA = data.SourceAddress;
                     this.UserIPB = data.DestinationAddress;
                     this.time = data.Time;
                     this.protocol = data.HardwareType;
-                    this.reason = (String)ht[key];
+                    string str = ht[key].ToString();
+                    string[] strs = str.Split(',');
+                    this.reason = strs[0];
+                    this.detailReason = strs[1];
                     lock (pbList.SyncRoot)
                     {
                         pbList.Add(this);
@@ -128,6 +130,20 @@ namespace GodEye
 
                     keys = key;
                 }
+                //if (data.Data.Contains(key) || data.Data.Contains(key))
+                //{
+                //    this.UserIPA = data.SourceAddress;
+                //    this.UserIPB = data.DestinationAddress;
+                //    this.time = data.Time;
+                //    this.protocol = data.HardwareType;
+                //    this.reason = (String)ht[key];
+                //    lock (pbList.SyncRoot)
+                //    {
+                //        pbList.Add(this);
+                //    }
+
+                //    keys = key;
+                //}
 
             }
 

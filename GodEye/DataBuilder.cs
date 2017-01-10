@@ -28,7 +28,7 @@ namespace GodEye
             rows[4] = "--";
             rows[5] = "--";
             //rows[6] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff");
-            rows[6] = DateTime.Now.ToString("HH:mm:ss:fff yyyy-MM-dd");
+            rows[6] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             Packet packet = Packet.ParsePacket(rawPacket.LinkLayerType, rawPacket.Data);
 
             EthernetPacket ep = EthernetPacket.GetEncapsulated(packet);

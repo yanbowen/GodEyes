@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.currentUpButton = new System.Windows.Forms.Button();
-            this.entertainmentSite = new System.Windows.Forms.CheckBox();
+            this.qqLogoutCheckBox = new System.Windows.Forms.CheckBox();
             this.currentMonitoringGroupBox = new System.Windows.Forms.GroupBox();
             this.currentDownButton = new System.Windows.Forms.Button();
             this.startCurrentMonitoring = new System.Windows.Forms.Button();
@@ -41,13 +41,13 @@
             this.recordUpButton = new System.Windows.Forms.Button();
             this.recordButton = new System.Windows.Forms.Button();
             this.designatesourceIPLabel = new System.Windows.Forms.Label();
-            this.sourceTextBox = new System.Windows.Forms.TextBox();
+            this.qqNumTextBox = new System.Windows.Forms.TextBox();
             this.recordGroupBox = new System.Windows.Forms.GroupBox();
             this.stopDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.startTimeLabel = new System.Windows.Forms.Label();
             this.stopTimeLabel = new System.Windows.Forms.Label();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.networkGames = new System.Windows.Forms.CheckBox();
+            this.qqLoginCheckBox = new System.Windows.Forms.CheckBox();
             this.monitoringResultslistView = new System.Windows.Forms.DataGridView();
             this.rowTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rowIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,16 +70,16 @@
             this.currentUpButton.Text = "上页";
             this.currentUpButton.UseVisualStyleBackColor = true;
             // 
-            // entertainmentSite
+            // qqLogoutCheckBox
             // 
-            this.entertainmentSite.AutoSize = true;
-            this.entertainmentSite.Font = new System.Drawing.Font("华文楷体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.entertainmentSite.Location = new System.Drawing.Point(42, 270);
-            this.entertainmentSite.Name = "entertainmentSite";
-            this.entertainmentSite.Size = new System.Drawing.Size(103, 27);
-            this.entertainmentSite.TabIndex = 2;
-            this.entertainmentSite.Text = "QQ下线";
-            this.entertainmentSite.UseVisualStyleBackColor = true;
+            this.qqLogoutCheckBox.AutoSize = true;
+            this.qqLogoutCheckBox.Font = new System.Drawing.Font("华文楷体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.qqLogoutCheckBox.Location = new System.Drawing.Point(42, 270);
+            this.qqLogoutCheckBox.Name = "qqLogoutCheckBox";
+            this.qqLogoutCheckBox.Size = new System.Drawing.Size(103, 27);
+            this.qqLogoutCheckBox.TabIndex = 2;
+            this.qqLogoutCheckBox.Text = "QQ下线";
+            this.qqLogoutCheckBox.UseVisualStyleBackColor = true;
             // 
             // currentMonitoringGroupBox
             // 
@@ -168,13 +168,13 @@
             this.designatesourceIPLabel.TabIndex = 12;
             this.designatesourceIPLabel.Text = "指定QQ号码";
             // 
-            // sourceTextBox
+            // qqNumTextBox
             // 
-            this.sourceTextBox.Location = new System.Drawing.Point(41, 182);
-            this.sourceTextBox.Multiline = true;
-            this.sourceTextBox.Name = "sourceTextBox";
-            this.sourceTextBox.Size = new System.Drawing.Size(200, 24);
-            this.sourceTextBox.TabIndex = 11;
+            this.qqNumTextBox.Location = new System.Drawing.Point(41, 182);
+            this.qqNumTextBox.Multiline = true;
+            this.qqNumTextBox.Name = "qqNumTextBox";
+            this.qqNumTextBox.Size = new System.Drawing.Size(200, 24);
+            this.qqNumTextBox.TabIndex = 11;
             // 
             // recordGroupBox
             // 
@@ -182,13 +182,13 @@
             this.recordGroupBox.Controls.Add(this.recordUpButton);
             this.recordGroupBox.Controls.Add(this.recordButton);
             this.recordGroupBox.Controls.Add(this.designatesourceIPLabel);
-            this.recordGroupBox.Controls.Add(this.sourceTextBox);
+            this.recordGroupBox.Controls.Add(this.qqNumTextBox);
             this.recordGroupBox.Controls.Add(this.stopDateTimePicker);
             this.recordGroupBox.Controls.Add(this.startTimeLabel);
             this.recordGroupBox.Controls.Add(this.stopTimeLabel);
-            this.recordGroupBox.Controls.Add(this.entertainmentSite);
+            this.recordGroupBox.Controls.Add(this.qqLogoutCheckBox);
             this.recordGroupBox.Controls.Add(this.startDateTimePicker);
-            this.recordGroupBox.Controls.Add(this.networkGames);
+            this.recordGroupBox.Controls.Add(this.qqLoginCheckBox);
             this.recordGroupBox.Font = new System.Drawing.Font("华文楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.recordGroupBox.Location = new System.Drawing.Point(12, 32);
             this.recordGroupBox.Name = "recordGroupBox";
@@ -233,16 +233,16 @@
             this.startDateTimePicker.Size = new System.Drawing.Size(200, 24);
             this.startDateTimePicker.TabIndex = 8;
             // 
-            // networkGames
+            // qqLoginCheckBox
             // 
-            this.networkGames.AutoSize = true;
-            this.networkGames.Font = new System.Drawing.Font("华文楷体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.networkGames.Location = new System.Drawing.Point(42, 233);
-            this.networkGames.Name = "networkGames";
-            this.networkGames.Size = new System.Drawing.Size(103, 27);
-            this.networkGames.TabIndex = 1;
-            this.networkGames.Text = "QQ上线";
-            this.networkGames.UseVisualStyleBackColor = true;
+            this.qqLoginCheckBox.AutoSize = true;
+            this.qqLoginCheckBox.Font = new System.Drawing.Font("华文楷体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.qqLoginCheckBox.Location = new System.Drawing.Point(42, 233);
+            this.qqLoginCheckBox.Name = "qqLoginCheckBox";
+            this.qqLoginCheckBox.Size = new System.Drawing.Size(103, 27);
+            this.qqLoginCheckBox.TabIndex = 1;
+            this.qqLoginCheckBox.Text = "QQ上线";
+            this.qqLoginCheckBox.UseVisualStyleBackColor = true;
             // 
             // monitoringResultslistView
             // 
@@ -346,7 +346,7 @@
         #endregion
 
         private System.Windows.Forms.Button currentUpButton;
-        private System.Windows.Forms.CheckBox entertainmentSite;
+        private System.Windows.Forms.CheckBox qqLogoutCheckBox;
         private System.Windows.Forms.GroupBox currentMonitoringGroupBox;
         private System.Windows.Forms.Button currentDownButton;
         private System.Windows.Forms.Button startCurrentMonitoring;
@@ -355,13 +355,13 @@
         private System.Windows.Forms.Button recordUpButton;
         private System.Windows.Forms.Button recordButton;
         private System.Windows.Forms.Label designatesourceIPLabel;
-        private System.Windows.Forms.TextBox sourceTextBox;
+        private System.Windows.Forms.TextBox qqNumTextBox;
         private System.Windows.Forms.GroupBox recordGroupBox;
         private System.Windows.Forms.DateTimePicker stopDateTimePicker;
         private System.Windows.Forms.Label startTimeLabel;
         private System.Windows.Forms.Label stopTimeLabel;
         private System.Windows.Forms.DateTimePicker startDateTimePicker;
-        private System.Windows.Forms.CheckBox networkGames;
+        private System.Windows.Forms.CheckBox qqLoginCheckBox;
         private System.Windows.Forms.DataGridView monitoringResultslistView;
         private System.Windows.Forms.GroupBox monitoringResultsGroupBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn rowTime;

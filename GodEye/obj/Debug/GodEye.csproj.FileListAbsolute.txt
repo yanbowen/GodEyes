@@ -6,7 +6,6 @@ C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\D
 C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.ChartFormTest.resources
 C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.EmailForm.resources
 C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.MainForm.resources
-C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.ProcessingEmailForm.resources
 C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.QQForm.resources
 C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.StaffMonitoringForm.resources
 C:\yanbowen\Documents\visual studio 2015\Projects\GodEyeDemo-master\GodEye\obj\Debug\GodEye.Properties.Resources.resources

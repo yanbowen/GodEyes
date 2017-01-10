@@ -183,7 +183,7 @@ namespace GodEye
             time = pe.Time;
             subject = pe.Subject;
 
-            return "insert into email_info(sender,receiver,senderIP,caption,time) values('"+sender+"','"+receiver+"','"+senderIP+"','"+caption+"','"+time+"')";
+            return "insert into email_info(sender,receiver,senderIP,caption,time,subject) values('"+sender+"','"+receiver+"','"+senderIP+"','"+caption+"','"+time+"','"+subject+"')";
         }
 
         private string SetSQLString(ProcessingQQLoginLogout qq)
@@ -193,7 +193,7 @@ namespace GodEye
             string logn_out;
             string time;
             qqnum = qq.QqID;
-            IP = qq.QqID;
+            IP = qq.QqIP;
             if (qq.QqLogin == 1)
             {
                 logn_out = "上线";
@@ -220,6 +220,131 @@ namespace GodEye
             detailReason = pb.DetailReason;
             time = pb.Time;
             return "insert into behave_info(sender,receiver,reason,detailReason,time) values('"+senderIP+"','"+receiverIP+"','"+reason+"','"+detailReason+"','"+time+"')";
+        }
+
+        public List<ProcessingQQLoginLogout> SearchQQ(MySqlConnection myConnect, string startTime, string endTime, string qqNum, bool login, bool leave)
+        {
+            List<ProcessingQQLoginLogout> datalist = new List<ProcessingQQLoginLogout>();
+            myConnect.Open();
+            string sql = "";
+            MySqlCommand myCmd = null;
+            sql = "select * from qq_info where time >= '" + startTime + "' and time <= '" + endTime+"'";
+            if (qqNum != "")
+                sql += "and qqnum = '" + qqNum+ "'";
+            if (login&&(!leave))
+                sql += "and qqLogin = " + "'上线'";
+            if ((!login)&&leave)
+                sql += "and qqLogin = " + "'下线'";
+            if(login&&leave)
+                sql += "and qqLogin = " + "'上线'" + "or qqLogin = " + "'下线'";
+            Debug.WriteLine(sql);
+            try
+            {
+                myCmd = new MySqlCommand(get_uft8(sql), myConnect);
+                MySqlDataReader reader = myCmd.ExecuteReader();
+                ProcessingQQLoginLogout row;
+                while (reader.Read())
+                {
+                    row = new ProcessingQQLoginLogout();
+                    row.QqID = reader[1].ToString();
+                    row.QqIP = reader[2].ToString();
+                    if (reader[3].ToString() == "上线")
+                        row.QqLogin = 1;
+                    else
+                        row.QqLogin = 2;
+                    row.Time = reader[4].ToString();
+                    datalist.Add(row);
+                }
+            }
+            finally
+            {
+                myConnect.Close();
+            }
+            return datalist;
+        }
+
+
+        public List<ProcessingBehave> SearchPB(MySqlConnection myConnect, string startTime, string endTime, string sender, string receiver, bool game, bool entertainment)
+        {
+            List<ProcessingBehave> datalist = new List<ProcessingBehave>();
+            myConnect.Open();
+            string sql = "";
+            MySqlCommand myCmd = null;
+            sql = "select * from behave_info where time >= '" + startTime + "'" + " and time <= '" + endTime + "'";
+            if (sender != "")
+                sql += "and sender like '" + sender +"%'";
+            if (receiver != "")
+                sql += "and receiver like '" + receiver + "%'";
+            if (game&&(!entertainment))
+                sql += "and reason = " + "'娱乐'";
+            if ((!game)&&entertainment)
+                sql += "and reason = " + "'购物'";
+            if(game&&entertainment)
+                sql += "and reason = " + "'娱乐'" + "or reason = " + "'购物'";
+            Debug.WriteLine(sql);
+            try
+            {
+                myCmd = new MySqlCommand(get_uft8(sql), myConnect);
+                MySqlDataReader reader = myCmd.ExecuteReader();
+                ProcessingBehave row;
+                while (reader.Read())
+                {
+                    row = new ProcessingBehave();
+                    row.UserIPA = reader[1].ToString();
+                    row.UserIPB = reader[2].ToString();
+                    row.Reason = reader[3].ToString();
+                    row.DetailReason = reader[4].ToString();
+                    row.Time = reader[5].ToString();
+                    datalist.Add(row);
+                }
+            }
+            catch (Exception ex) { }
+            finally
+            {
+                myConnect.Close();
+            }
+            return datalist;
+        }
+
+        public List<ProcessingEmail> SearchPE(MySqlConnection myConnect, string startTime, string endTime, string sender, string receiver, string keywords)
+        {
+            List<ProcessingEmail> datalist = new List<ProcessingEmail>();
+            ;
+            myConnect.Open();
+            string sql = "";
+            MySqlCommand myCmd = null;
+            sql = "select * from email_info where time >= '" + startTime + "'" + " and time <= '" + endTime + "'";
+            if (sender != "")
+                sql += "and sender like '%" + sender+ "%'";
+            if (receiver != "")
+                sql += "and receiver like '%" + receiver+"%'";
+            if (keywords != "")
+                sql += "and subject like '%" + keywords + "%'";
+
+            Debug.WriteLine(sql);
+            try
+            {
+                myCmd = new MySqlCommand(get_uft8(sql), myConnect);
+                MySqlDataReader reader = myCmd.ExecuteReader();
+                ProcessingEmail row = null;
+                while (reader.Read())
+                {
+                    row = new ProcessingEmail();
+                    row.Sender = reader[1].ToString();
+                    row.Receiver = reader[2].ToString();
+                    row.SenderIP = reader[3].ToString();
+                    row.Caption = reader[4].ToString();
+                    row.Time = reader[5].ToString();
+                    row.Subject = reader[6].ToString();
+                    datalist.Add(row);
+                }
+            }
+            catch (Exception ex) { }
+            finally
+            {
+                myConnect.Close();
+            }
+            return datalist;
         }
 
         public static string get_uft8(string unicodeString)

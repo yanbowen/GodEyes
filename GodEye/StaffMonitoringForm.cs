@@ -109,6 +109,7 @@ namespace GodEye
 
         private void startMonitoring_Click(object sender, EventArgs e)
         {
+            monitoringResultslistView.Rows.Clear();
             UIConfig(startCurrentMonitoringString);
             isLoadRealTimeData = true;
             LoadRealTimeData();
@@ -162,9 +163,9 @@ namespace GodEye
             {
                 rowsLine[1] = pb.UserIPA;
                 rowsLine[2] = pb.UserIPB;
-                rowsLine[3] = pb.Protocol;
+                rowsLine[3] = pb.Reason;
                 rowsLine[0] = pb.Time;
-                rowsLine[4] = pb.Reason;
+                rowsLine[4] = pb.DetailReason;
                 monitoringResultslistView.Rows.Add(rowsLine);
             }
             catch(Exception ex)
@@ -208,7 +209,7 @@ namespace GodEye
             this.rowDestinationIP.Width = width / monitoringResultslistView.ColumnCount;
             this.rowTime.Width = width / monitoringResultslistView.ColumnCount;
             this.rowReason.Width = width / monitoringResultslistView.ColumnCount;
-            this.rowProtocol.Width = width / monitoringResultslistView.ColumnCount;
+            this.rowDetailReason.Width = width / monitoringResultslistView.ColumnCount;
         }
 
         private void StaffMonitoringForm_Resize(object sender, EventArgs e)
@@ -223,12 +224,31 @@ namespace GodEye
 
         private void monitoringResultslistView_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
         {
-            rowReason.Width = monitoringResultslistView.Width - rowSourceIP.Width - rowDestinationIP.Width - rowProtocol.Width - rowTime.Width;
+            rowDetailReason.Width = monitoringResultslistView.Width - rowSourceIP.Width - rowDestinationIP.Width - rowReason.Width - rowTime.Width;
         }
 
         private void recordButton_Click(object sender, EventArgs e)
         {
             UIConfig(recordButtonString);
+
+            string startDetailTime = startDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            string startDayTime = startDateTimePicker.Value.ToString("yyyy-MM-dd");
+
+            string stopDetailTime = stopDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss:ff");
+            string stopDayTime = stopDateTimePicker.Value.ToString("yyyy-MM-dd");
+            string sourceIP = sourceTextBox.Text;
+            string destinationIP = destinationTextBox.Text;
+            bool checkGame = networkGames.Checked;
+            bool checkShop = entertainmentSite.Checked;
+
+            SaveAllToSQL mysql = new SaveAllToSQL();
+            List<ProcessingBehave> pblist = mysql.SearchPB(mysql.MyConnect, startDayTime, stopDetailTime, sourceIP, destinationIP, checkGame, checkShop);
+
+            monitoringResultslistView.Rows.Clear();
+            foreach (ProcessingBehave pb in pblist)
+            {
+                ShowDataRows(pb);
+            }
         }
 
         private void StaffMonitoringForm_FormClosing(object sender, FormClosingEventArgs e)

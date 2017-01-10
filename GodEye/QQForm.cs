@@ -36,7 +36,7 @@ namespace GodEye
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;//设置窗体居屏幕中央
-            this.Opacity = 0.92;
+            //this.Opacity = 0.92;
         }
 
         private void QQForm_Load(object sender, EventArgs e)
@@ -74,9 +74,9 @@ namespace GodEye
             {
                 startDateTimePicker.Enabled = false;
                 stopDateTimePicker.Enabled = false;
-                sourceTextBox.Enabled = false;
-                networkGames.Enabled = false;
-                entertainmentSite.Enabled = false;
+                qqNumTextBox.Enabled = false;
+                qqLoginCheckBox.Enabled = false;
+                qqLogoutCheckBox.Enabled = false;
                 startCurrentMonitoring.Enabled = false;
                 recordButton.Enabled = false;
                 recordUpButton.Enabled = false;
@@ -89,9 +89,9 @@ namespace GodEye
             {
                 startDateTimePicker.Enabled = true;
                 stopDateTimePicker.Enabled = true;
-                sourceTextBox.Enabled = true;
-                networkGames.Enabled = true;
-                entertainmentSite.Enabled = true;
+                qqNumTextBox.Enabled = true;
+                qqLoginCheckBox.Enabled = true;
+                qqLogoutCheckBox.Enabled = true;
                 stopCurrentMonitoring.Enabled = false;
                 recordButton.Enabled = true;
                 startCurrentMonitoring.Enabled = true;
@@ -102,10 +102,29 @@ namespace GodEye
         private void recordButton_Click(object sender, EventArgs e)
         {
             UIConfig(recordButtonString);
+
+            string startDetailTime = startDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            string startDayTime = startDateTimePicker.Value.ToString("yyyy-MM-dd");
+
+            string stopDetailTime = stopDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            string stopDayTime = stopDateTimePicker.Value.ToString("yyyy-MM-dd");
+
+            string qqNum = qqNumTextBox.Text;
+            bool qqLogin = qqLoginCheckBox.Checked;
+            bool qqLogout = qqLogoutCheckBox.Checked;
+            SaveAllToSQL mySql = new SaveAllToSQL();
+            List<ProcessingQQLoginLogout> qqResultList = mySql.SearchQQ(mySql.MyConnect, startDayTime, stopDetailTime, qqNum, qqLogin, qqLogout);
+
+            monitoringResultslistView.Rows.Clear();
+            foreach (ProcessingQQLoginLogout pqll in qqResultList)
+            {
+                ShowDataRows(pqll);
+            }
         }
 
         private void startCurrentMonitoring_Click(object sender, EventArgs e)
         {
+            monitoringResultslistView.Rows.Clear();
             UIConfig(startCurrentMonitoringString);
             LoadRealData();
         }

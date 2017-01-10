@@ -76,7 +76,7 @@ namespace GodEye
                 this.QqLogin = 1;
                 return 1;
             }
-            else if (data.BinaryData[45] == (byte)(0x00) && data.BinaryData[46] == (byte)(0x59))
+            else if (data.BinaryData[45] == (byte)(0x00) && data.BinaryData[46] == (byte)(0x62))
             {
                 this.QqLogin = 2;
                 return 1;
